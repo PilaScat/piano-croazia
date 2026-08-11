@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Istria 13-16 agosto 2026</title>
+<meta name="description" content="Piano di viaggio in Istria per sei persone: programma, spesa, valigie.">
+<meta name="theme-color" content="#0b6e6e">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏖️</text></svg>">
+<style>
+:root{
+  --bg:#fbf8f3; --surface:#fff; --surface-2:#f3efe7; --line:#e2dbcf;
+  --text:#1b1a18; --muted:#6b6459; --accent:#0b6e6e; --accent-soft:#e0f0ef;
+  --warn:#b4460f; --warn-soft:#fceee5; --ok:#2f6b3a;
+  --shadow:0 1px 2px rgba(28,26,24,.06),0 4px 16px rgba(28,26,24,.05);
+  --radius:14px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#14161a; --surface:#1c2026; --surface-2:#232830; --line:#333a44;
+    --text:#e9e6e1; --muted:#a0a8b4; --accent:#5ecfc4; --accent-soft:#17322f;
+    --warn:#ff9f6e; --warn-soft:#3a2318; --ok:#7fc98c;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14161a; --surface:#1c2026; --surface-2:#232830; --line:#333a44;
+  --text:#e9e6e1; --muted:#a0a8b4; --accent:#5ecfc4; --accent-soft:#17322f;
+  --warn:#ff9f6e; --warn-soft:#3a2318; --ok:#7fc98c;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  overflow-x:hidden;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 96px}
+
+header.hero{
+  background:linear-gradient(160deg,var(--accent) 0%,#084f56 100%);
+  color:#fff; padding:32px 16px 26px; margin-bottom:8px;
+}
+.hero-in{max-width:760px;margin:0 auto}
+.hero h1{margin:0 0 6px;font-size:1.9rem;line-height:1.15;letter-spacing:-.02em}
+.hero .sub{margin:0;opacity:.9;font-size:1rem}
+.hero .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.pill{background:rgba(255,255,255,.16);padding:4px 11px;border-radius:999px;font-size:.83rem}
+
+nav.days{
+  position:sticky; top:0; z-index:20; background:var(--bg);
+  border-bottom:1px solid var(--line); margin-bottom:20px;
+}
+.days-in{max-width:760px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;
+  scrollbar-width:none}
+.days-in::-webkit-scrollbar{display:none}
+.days-in a{
+  flex:0 0 auto; text-decoration:none; color:var(--text); background:var(--surface-2);
+  border:1px solid var(--line); padding:6px 13px; border-radius:999px; font-size:.87rem;
+  font-weight:600; white-space:nowrap;
+}
+.days-in a.today{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+h2{font-size:1.35rem;letter-spacing:-.01em;margin:38px 0 4px;scroll-margin-top:64px}
+h2 .dow{display:block;font-size:.8rem;font-weight:600;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+h3{font-size:1.05rem;margin:26px 0 8px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+strong{font-weight:660}
+.lead{color:var(--muted);margin:-2px 0 18px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;margin:0 0 16px;box-shadow:var(--shadow)}
+.card>:last-child{margin-bottom:0}
+
+.alert{border-left:4px solid var(--warn);background:var(--warn-soft);
+  border-radius:10px;padding:14px 16px;margin:0 0 14px}
+.alert.info{border-left-color:var(--accent);background:var(--accent-soft)}
+.alert .t{display:block;font-weight:700;margin-bottom:4px}
+.alert>:last-child{margin-bottom:0}
+.alert p{font-size:.95rem}
+
+.tl{list-style:none;margin:14px 0 18px;padding:0}
+.tl li{display:grid;grid-template-columns:58px 1fr;gap:12px;padding:9px 0;
+  border-top:1px solid var(--line)}
+.tl li:first-child{border-top:0}
+.tl time{font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent);font-size:.93rem;
+  padding-top:1px}
+.tl .what{min-width:0}
+.tl .what em{display:block;font-style:normal;color:var(--muted);font-size:.88rem;margin-top:2px}
+
+ul.plain{margin:0 0 14px;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+
+.check{list-style:none;margin:8px 0 4px;padding:0}
+.check li{border-top:1px solid var(--line)}
+.check li:first-child{border-top:0}
+.check label{display:flex;gap:12px;align-items:flex-start;padding:10px 2px;cursor:pointer}
+.check input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:22px;height:22px;
+  margin:1px 0 0;border:2px solid var(--line);border-radius:6px;background:var(--surface);
+  cursor:pointer;position:relative;transition:background .12s,border-color .12s}
+.check input:checked{background:var(--accent);border-color:var(--accent)}
+.check input:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+  border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(43deg)}
+.check input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.check .txt{flex:1;min-width:0}
+.check input:checked+.txt{color:var(--muted);text-decoration:line-through;
+  text-decoration-color:var(--line)}
+
+.listhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  margin:22px 0 0}
+.listhead h3{margin:0}
+.count{font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+table{width:100%;border-collapse:collapse;margin:0 0 14px;font-size:.94rem}
+th,td{text-align:left;padding:8px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{border-bottom:0;border-top:2px solid var(--line);font-weight:700;padding-top:10px}
+
+.tools{position:fixed;right:14px;bottom:14px;z-index:30;display:flex;gap:8px}
+.tools button{border:1px solid var(--line);background:var(--surface);color:var(--text);
+  width:44px;height:44px;border-radius:50%;font-size:1.1rem;cursor:pointer;
+  box-shadow:var(--shadow);display:grid;place-items:center}
+.tools button:active{transform:scale(.94)}
+
+.reset{background:none;border:0;color:var(--muted);font-size:.8rem;cursor:pointer;
+  padding:4px 0;text-decoration:underline}
+
+footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:.87rem}
+footer a{color:var(--muted)}
+
+@media (min-width:640px){
+  .hero h1{font-size:2.4rem}
+  .wrap{padding:0 24px 96px}
+  .tl li{grid-template-columns:70px 1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-in">
+    <h1>Istria</h1>
+    <p class="sub">13-16 agosto 2026 · sei persone · pulmino da 9 posti</p>
+    <div class="meta">
+      <span class="pill">Base a Vodnjan</span>
+      <span class="pill">Check-in gio 16:00</span>
+      <span class="pill">Check-out dom 09:00</span>
+    </div>
+  </div>
+</header>
+
+<nav class="days" aria-label="Giorni">
+  <div class="days-in">
+    <a href="#g13" data-day="2026-08-13">Gio 13</a>
+    <a href="#g14" data-day="2026-08-14">Ven 14</a>
+    <a href="#g15" data-day="2026-08-15">Sab 15</a>
+    <a href="#g16" data-day="2026-08-16">Dom 16</a>
+    <a href="#prenotazioni">Prenotazioni</a>
+    <a href="#spesa">Spesa</a>
+    <a href="#valigie">Valigie</a>
+    <a href="#costi">Costi</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="alert">
+    <span class="t">Il 15 agosto in Croazia è Velika Gospa</span>
+    <p>Festa nazionale: negozi e supermercati chiusi. E siccome il 14 si è a Premantura
+    da mattina a sera, <strong>l'unica finestra di spesa fresca è la sera del 13</strong>.
+    Deve coprire tre colazioni, la cena del 13, tutta la grigliata del 14 e il pranzo al
+    sacco del 15.</p>
+  </div>
+
+  <div class="alert info">
+    <span class="t">La vignetta slovena non serve, su questo percorso</span>
+    <p>Dal 1º gennaio 2026 le superstrade H5 e H6 fra Škofije, Capodistria e Isola sono
+    declassate a strade statali ed esenti in entrambe le direzioni: è esattamente il
+    corridoio Rabuiese → Capodistria → Isola → Portorose → Dragogna. Limite 90 km/h,
+    80 nel tunnel Markovec.</p>
+    <p><strong>L'esenzione finisce dove finisce la quattro corsie sopra Isola.</strong>
+    Se il navigatore instrada sulla A1 verso Lubiana la vignetta ridiventa obbligatoria,
+    multa da 300 a 800 euro.</p>
+  </div>
+
+  <h2 id="g13"><span class="dow">Giovedì 13 agosto</span>Viaggio, casa, piscina</h2>
+  <p class="lead">Circa 460 km e 6h30 di guida. È giorno di esodo: A4 verso Trieste e
+  valico di Dragogna sono i punti critici, l'unica difesa è partire in orario.</p>
+
+  <ol class="tl">
+    <li><time>08:00</time><div class="what">Partenza</div></li>
+    <li><time>08:30</time><div class="what"><strong>Iper Tosano</strong>, via Diamantina 1, Ferrara<em>Apre alle 08:30 · spesa secca e bevande</em></div></li>
+    <li><time>10:00</time><div class="what">Ferrara Nord → A13 → Padova → A4 → Trieste</div></li>
+    <li><time>12:30</time><div class="what">Sosta pranzo e cambio guida<em>Con i panini comprati a Tosano</em></div></li>
+    <li><time>14:15</time><div class="what">Trieste, uscita verso Rabuiese e Muggia</div></li>
+    <li><time>14:30</time><div class="what">Confine Škofije → Capodistria → tunnel Markovec → Isola</div></li>
+    <li><time>15:00</time><div class="what">Strada 111: Strugnano, Portorose, Lucia</div></li>
+    <li><time>15:30</time><div class="what">Valico Dragogna o Sicciole → Umago</div></li>
+    <li><time>15:45</time><div class="what">A9 verso sud, uscita Vodnjan/Dignano</div></li>
+    <li><time>16:30</time><div class="what"><strong>Arrivo</strong>, scarico e giro della casa</div></li>
+    <li><time>17:15</time><div class="what">Bagno in piscina</div></li>
+    <li><time>18:15</time><div class="what"><strong>Spesa fresca</strong> al Lidl o Konzum di Dignano</div></li>
+    <li><time>19:45</time><div class="what">Cena leggera a casa e serata in piscina</div></li>
+  </ol>
+
+  <div class="card">
+    <p><strong>Il giro della casa va fatto prima di andare a fare la spesa.</strong>
+    Griglia con grata, carbonella, pentole, coltelli, teli, ombrellone, carta igienica:
+    quello che manca si aggiunge al carrello.</p>
+    <p>Questa spesa è quella che conta, perché il 14 si è fuori tutto il giorno e il 15
+    è tutto chiuso. L'unico rimedio possibile è una sosta al Lidl o al Kaufland di Pola
+    la sera del 14 rientrando da Premantura: sta sulla strada e chiude alle 21:00.</p>
+  </div>
+
+  <h2 id="g14"><span class="dow">Venerdì 14 agosto</span>Kamenjak tutto il giorno, grigliata la sera</h2>
+
+  <ol class="tl">
+    <li><time>08:00</time><div class="what">Colazione</div></li>
+    <li><time>08:45</time><div class="what">Partenza per Premantura<em>35 km via Pola, 40 minuti</em></div></li>
+    <li><time>09:30</time><div class="what">Ritrovo con l'operatore a Premantura, fuori dal parco</div></li>
+    <li><time>09:45</time><div class="what"><strong>Kayak in quattro</strong><em>Grotta Velika Kolombarica, snorkeling, tuffi dalle rocce</em></div></li>
+    <li><time>09:45</time><div class="what">Le altre due in paese: spiaggia, bar e negozi a piedi</div></li>
+    <li><time>13:45</time><div class="what">Fine tour</div></li>
+    <li><time>14:00</time><div class="what">Pranzo insieme a Premantura</div></li>
+    <li><time>15:30</time><div class="what">Ingresso in auto al parco<em>Biglietto giornaliero pagato una volta sola</em></div></li>
+    <li><time>15:45</time><div class="what"><strong>Pomeriggio a Kamenjak</strong><em>Calette, bagni, scogliere, i bar sulla costa</em></div></li>
+    <li><time>18:30</time><div class="what">Rientro, con sosta facoltativa al Lidl di Pola</div></li>
+    <li><time>19:30</time><div class="what">Accensione della brace</div></li>
+    <li><time>21:00</time><div class="what"><strong>Grigliata</strong></div></li>
+  </ol>
+
+  <h3>La questione del biglietto</h3>
+  <p>Il problema di entrare e uscire dal parco non si pone, perché <strong>Premantura è
+  fuori dall'area protetta</strong>. I caselli, Rupine e Parendine, stanno a sud del
+  paese, e gli operatori di kayak sono in paese o al porticciolo.</p>
+  <ul class="plain">
+    <li><strong>La mattina non si paga niente.</strong> Si parcheggia a Premantura, le
+    due restano in paese, i quattro partono in kayak.</li>
+    <li><strong>Si paga una volta sola nel pomeriggio</strong>, entrando tutti insieme in
+    auto per la parte selvatica.</li>
+    <li><strong>A piedi e in bicicletta l'ingresso è gratuito tutto l'anno</strong>: le
+    due possono entrare nel parco anche la mattina, senza pagare e senza il pulmino.</li>
+  </ul>
+  <div class="alert">
+    <span class="t">Da confermare all'operatore: dov'è il punto di ritrovo</span>
+    <p>Se fosse già dentro l'area a pagamento, la regola su uscita e rientro con lo
+    stesso biglietto giornaliero non è documentata da nessuna parte. Si chiede al casello
+    quando si paga, o prima al parco: <a href="tel:+38552575283">+385 52 575 283</a>,
+    <a href="mailto:info@kamenjak.hr">info@kamenjak.hr</a>.</p>
+  </div>
+  <p>Biglietto giornaliero per veicolo circa 15 euro, 10% di sconto online su
+  <a href="https://shop.kamenjak.hr/en/tickets">shop.kamenjak.hr</a>. Da verificare se un
+  9 posti è tariffato come auto o come minibus. <strong>Rupine accetta solo biglietti
+  prepagati</strong>, a <strong>Parendine</strong> si compra sul posto. Si entra dalle
+  07:00 alle 21:00, si deve essere fuori entro le 22:00.</p>
+
+  <div class="card">
+    <p><strong>Kamenjak non ha ombra e quasi nessun servizio.</strong> Strade bianche e
+    polverose, spiagge di roccia e ghiaia, bar pochi e lontani fra loro. Per un
+    pomeriggio intero servono ombrellone, molta acqua nella borsa frigo e scarpette da
+    scoglio.</p>
+    <p>La brace vuole 40-45 minuti prima di essere pronta, i bricchetti anche di più:
+    con il rientro alle 19:15 si mangia verso le 21:00, che ad agosto in Istria è l'ora
+    normale.</p>
+    <p><strong>Il tramonto da Punta Kamenjak, verso le 20:00, è la cosa migliore del
+    parco</strong>, ma non è compatibile con la grigliata: uscendo alle 20:15 si cenerebbe
+    a mezzanotte. O si rinuncia, o quella sera si mangia una cosa veloce.</p>
+  </div>
+
+  <h2 id="g15"><span class="dow">Sabato 15 agosto</span>Spiaggia e Pola la sera</h2>
+  <p class="lead">La spiaggia si sceglie sul momento. Un criterio che conviene tenere:
+  scegliere verso sud, in direzione Pola, così la sera il trasferimento è di quindici
+  minuti invece di quaranta.</p>
+
+  <ol class="tl">
+    <li><time>08:00</time><div class="what">Colazione</div></li>
+    <li><time>08:45</time><div class="what">Partenza, per essere in spiaggia entro le 09:30</div></li>
+    <li><time>09:30</time><div class="what"><strong>Spiaggia</strong><em>Con il pranzo al sacco comprato il 13</em></div></li>
+    <li><time>16:30</time><div class="what">Rientro a casa, doccia e riposo</div></li>
+    <li><time>19:00</time><div class="what">Partenza per <strong>Pola</strong></div></li>
+    <li><time>19:30</time><div class="what"><strong>Arena</strong><em>Aperta fino alle 22:00 · nessun concerto quel giorno</em></div></li>
+    <li><time>20:30</time><div class="what">Foro, tempio di Augusto, Arco dei Sergi</div></li>
+    <li><time>21:15</time><div class="what">Cena in centro</div></li>
+    <li><time>23:30</time><div class="what">Rientro</div></li>
+  </ol>
+
+  <div class="alert">
+    <span class="t">È Velika Gospa: le spiagge si riempiono presto</span>
+    <p>Arrivare entro le 09:30 non è pignoleria, è la differenza fra trovare ombra e
+    passare la giornata sotto il sole. Ed è la sera più affollata dell'anno:
+    <strong>la cena a Pola va prenotata</strong>.</p>
+  </div>
+
+  <h3>Le spiagge vicine</h3>
+  <ul class="plain">
+    <li><strong>Peroj e Barbariga</strong>, 10-15 minuti. Ghiaia e roccia, pini fino
+    all'acqua, vista sulle Brioni, docce e noleggio lettini.</li>
+    <li><strong>Fasana e Bi Val</strong>, 10 minuti. Bandiera Blu, riparata dalla bora,
+    la più comoda per i servizi.</li>
+    <li><strong>Medulin e Pomer</strong>, 30 minuti verso sud, già in direzione Pola.</li>
+  </ul>
+  <p>Biglietto dell'Arena circa 10 euro a testa, acquistabile su
+  <a href="https://shop.ami-pula.hr">shop.ami-pula.hr</a> per saltare la coda.</p>
+
+  <h2 id="g16"><span class="dow">Domenica 16 agosto</span>Rovigno e ritorno</h2>
+  <p class="lead">Rovigno è 20 km a nord-ovest di Dignano e si rientra sull'A9 a
+  Bale-Canfanaro: la deviazione costa un quarto d'ora e riempie una giornata che
+  altrimenti sarebbe solo autostrada. Il campanile di Sant'Eufemia è aperto tutti i
+  giorni, domenica compresa.</p>
+
+  <ol class="tl">
+    <li><time>07:30</time><div class="what">Sveglia, colazione, pulizie leggere e carico</div></li>
+    <li><time>09:00</time><div class="what">Check-out</div></li>
+    <li><time>09:45</time><div class="what"><strong>Rovigno</strong>, parcheggio Valdibora<em>4-5 €/h di giorno, si paga con Bmove o Aircash</em></div></li>
+    <li><time>10:00</time><div class="what">La Grisia, Sant'Eufemia col campanile, il porto, il mercato</div></li>
+    <li><time>12:00</time><div class="what">Ultimo bagno a Punta Corrente<em>Pineta a 15 minuti a piedi</em></div></li>
+    <li><time>13:00</time><div class="what">Pranzo in centro</div></li>
+    <li><time>14:30</time><div class="what">Partenza: A9 → Dragogna → Capodistria → Rabuiese → A4 → A13</div></li>
+    <li><time>20:00</time><div class="what">Arrivo</div></li>
+  </ol>
+  <p>Se il pulmino risultasse troppo ingombrante per gli stalli di Valdibora,
+  l'alternativa ufficiale per mezzi lunghi è <strong>Fra Pavla Pellizzera</strong> o
+  <strong>Gripole-Spinè</strong>.</p>
+
+  <h2 id="alternative">Alternative</h2>
+  <div class="card">
+    <p><strong>Grigliata il 13 invece del 14.</strong> Il 13 si arriva alle 16:30 con
+    tutta la sera libera: brace alle 19:00, tavola alle 20:30, spesa fresca appena fatta.
+    Il 14, rientrando da Premantura alle 19:15 stanchi e insabbiati, si cenerebbe con
+    qualcosa di veloce o in una konoba a Pola sulla strada.</p>
+    <p><strong>Se il kayak salta per vento.</strong> Kamenjak resta perfetto come
+    giornata di spiaggia e si va lo stesso, oppure la spiaggia si sposta a Fasana, più
+    riparata dalla bora, e Kamenjak diventa il programma del 15.</p>
+    <p><strong>Se il 15 le spiagge sono ingestibili.</strong> Piscina di casa la mattina
+    e Pola anticipata al tardo pomeriggio, con l'Arena alle 18:00 quando il caldo cala e
+    i gruppi sono già passati.</p>
+  </div>
+
+  <h2 id="prenotazioni">Prenotazioni e documenti</h2>
+
+  <div class="listhead">
+    <h3>Da prenotare</h3>
+    <span class="count" data-count-for="prenota"></span>
+  </div>
+  <ul class="check" data-list="prenota">
+    <li><label><input type="checkbox"><span class="txt"><strong>Kayak a Kamenjak per il 14</strong>, 4 persone. Tour grotte con snorkeling, 50-60 € a testa, 3,5-5 ore. GetYourGuide, CheckYeti, Peek o diretti (Happy Kayak Tour Istria). Chiedere orario e punto di ritrovo, se l'ingresso al parco è incluso, e la politica in caso di vento</span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><strong>Cena a Pola del 15</strong>, la sera peggiore dell'anno per improvvisare</span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><strong>Pranzo a Rovigno del 16</strong>, domenica di alta stagione</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Biglietti dell'Arena su shop.ami-pula.hr</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Ingresso a Kamenjak su shop.kamenjak.hr, sconto del 10% online</span></label></li>
+  </ul>
+
+  <div class="listhead">
+    <h3>Documenti e auto</h3>
+    <span class="count" data-count-for="doc"></span>
+  </div>
+  <ul class="check" data-list="doc">
+    <li><label><input type="checkbox"><span class="txt">Carta d'identità valida per l'espatrio o passaporto, <strong>per tutti e sei</strong></span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Tessera sanitaria con <strong>TEAM</strong> sul retro</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Patente di chi guida, libretto, assicurazione</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Se il pulmino è intestato ad altri, <strong>delega firmata</strong> con copia del documento dell'intestatario</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Giubbotto catarifrangente e triangolo</span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><strong>Set di lampadine di ricambio</strong>, obbligatorio in Croazia se i fari non sono LED o xeno</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Contanti per la tassa di soggiorno, circa 30 € in tutto</span></label></li>
+  </ul>
+
+  <div class="alert">
+    <span class="t">Tasso alcolemico: 0,0 per chi ha meno di 25 anni</span>
+    <p>In Croazia il limite generale è 0,5 g/l, ma per gli under 25 è zero. Il guidatore
+    designato per la sera del 15 va deciso prima di sedersi a tavola, non dopo.</p>
+  </div>
+
+  <p>Il gasolio in Croazia costa meno che in Italia: conviene arrivare con poco, fare il
+  pieno lì e ripartire il 16 col serbatoio pieno. Il pedaggio croato si paga al casello,
+  contanti o carta: sopra 1,90 m di altezza il pulmino è categoria II e paga circa il
+  doppio della categoria I.</p>
+
+  <h2 id="spesa">Lista della spesa</h2>
+  <p class="lead">Secco e bevande a Tosano, tutto il fresco in Croazia: nessun rischio di
+  catena del freddo su sei ore di viaggio ad agosto. Il programma prevede tre colazioni,
+  una cena leggera a casa, una grigliata, un pranzo al sacco in spiaggia, due pranzi
+  fuori e una cena fuori.</p>
+  <div class="alert info">
+    <span class="t">Due persone hanno problemi con il lattosio</span>
+    <p>Latte e yogurt vanno presi anche senza lattosio. I formaggi molto stagionati
+    (grana, pecorino, paški sir) e il burro ne contengono tracce trascurabili e di norma
+    si tollerano.</p>
+  </div>
+
+  <div class="listhead">
+    <h3>Tosano, giovedì mattina</h3>
+    <span class="count" data-count-for="tosano"></span>
+  </div>
+  <p class="lead">Le bevande sono la voce più pesante e quella dove il prezzo italiano
+  conviene davvero: con piscina e due giornate di spiaggia servono almeno 4 litri
+  d'acqua a testa al giorno.</p>
+  <ul class="check" data-list="tosano">
+    <li><label><input type="checkbox"><span class="txt">Acqua naturale, 8 confezioni da 6×1,5 L (72 L)</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Acqua frizzante, 2 confezioni da 6×1,5 L</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Birra, 36 bottiglie o lattine</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Coca, aranciata, tè freddo: 24 lattine e 4 bottiglie grandi</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Pane, affettato e formaggio per i panini del viaggio</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Pasta 1 kg e 2 bottiglie di passata, per la cena del 13</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Olio extravergine, aglio, peperoncino</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Fette biscottate, biscotti (3 pacchi), marmellata, crema alle nocciole, cereali</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Caffè per moka 500 g, zucchero</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Sale fino e grosso, pepe, origano, paprika, rosmarino</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Cracker, taralli, patatine (5 buste), frutta secca (2 buste)</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Barrette e snack da portare a Kamenjak</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Carbonella o bricchetti, 1 sacco da 4 kg</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Accendifuoco e accendino lungo</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Carta stagnola, vaschette di alluminio, spiedini</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Sacchi spazzatura, carta da cucina (4 rotoli), carta igienica</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Detersivo per piatti e spugne, sapone mani, salviette umidificate</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Crema solare 50, 3 tubi grandi, e doposole</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Repellente per zanzare e piastrine</span></label></li>
+  </ul>
+  <button class="reset" data-reset="tosano">Azzera questa lista</button>
+
+  <div class="listhead">
+    <h3>Dignano, giovedì alle 18:15</h3>
+    <span class="count" data-count-for="dignano"></span>
+  </div>
+  <div class="alert">
+    <span class="t">L'unica spesa fresca possibile</span>
+    <p>Deve coprire tre colazioni, la cena del 13, tutta la grigliata del 14 e il pranzo
+    al sacco del 15. Il 14 si è fuori tutto il giorno, il 15 è tutto chiuso.</p>
+  </div>
+  <ul class="check" data-list="dignano">
+    <li><label><input type="checkbox"><span class="txt">Ćevapčići, 1,2 kg</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Salsicce, 800 g</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Costine o braciole di maiale, 1 kg</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Alette di pollo, 800 g</span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><strong>Lepinje</strong>, le focacce piatte, e un vasetto di <strong>ajvar</strong>: senza quelli i ćevapi sono solo polpette</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Melanzane 2, zucchine 4, peperoni 4, cipolle rosse 3</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Patate 1,5 kg</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Insalata 2 buste, pomodori 1 kg, cetrioli 2, limoni 4</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Senape, ketchup, maionese</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Latte 2 L e <strong>latte senza lattosio 2 L</strong></span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Yogurt 8, di cui almeno 3 senza lattosio</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Burro, uova 12</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Pane, con una scorta che regga fino al 15</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Grana o parmigiano per la pasta della sera</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Frutta: anguria, pesche, uva</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Pršut e formaggio stagionato per gli aperitivi in piscina</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Ghiaccio, 3 sacchi</span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><strong>Pranzo al sacco del 15</strong>: pane, pršut, formaggio, pomodori, frutta già lavata</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">12 L d'acqua in più, da mettere in fresco la sera prima</span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><strong>Malvazija istarska</strong>, 2-3 bottiglie, e <strong>Teran</strong>, 1 bottiglia</span></label></li>
+  </ul>
+  <button class="reset" data-reset="dignano">Azzera questa lista</button>
+
+  <h2 id="valigie">Valigie</h2>
+  <p class="lead">Tre notti, quattro giorni, caldo pieno, due giornate intere in
+  spiaggia, una sera in città. Bagaglio morbido, non trolley rigidi: nel pulmino si
+  incastrano meglio.</p>
+
+  <div class="listhead">
+    <h3>Per ciascuno dei sei</h3>
+    <span class="count" data-count-for="valigia"></span>
+  </div>
+  <ul class="check" data-list="valigia">
+    <li><label><input type="checkbox"><span class="txt">4 magliette</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">1 camicia o polo per la sera a Pola</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">2 pantaloncini, 1 pantalone lungo leggero</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Intimo ×4, calzini ×3</span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><strong>2 costumi</strong>, così uno asciuga mentre si usa l'altro</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">1 felpa leggera: la sera in Istria il vento cala la temperatura più di quanto ci si aspetti</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Pigiama</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Ciabatte da piscina e doccia</span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><strong>Scarpette da scoglio</strong>: i fondali sono roccia e ricci, a Kamenjak si entra in acqua solo da lì</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Sneakers per Pola e Rovigno, sandali</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">2 teli mare e 1 telo doccia, da confermare con l'host se li fornisce</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Occhiali da sole, cappello</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Necessaire: spazzolino, dentifricio, deodorante, bagnoschiuma, rasoio</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Crema solare personale e doposole</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Farmaci personali</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Caricabatterie, powerbank</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Contanti in euro oltre alla carta: chioschi e parcheggi non sempre hanno il POS</span></label></li>
+  </ul>
+  <button class="reset" data-reset="valigia">Azzera questa lista</button>
+
+  <div class="listhead">
+    <h3>In più per i quattro del kayak</h3>
+    <span class="count" data-count-for="kayak"></span>
+  </div>
+  <ul class="check" data-list="kayak">
+    <li><label><input type="checkbox"><span class="txt">Maglietta tecnica o rashguard: quattro ore di sole sulle spalle bagnate bruciano</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Cappello con laccetto e occhiali con cordino, altrimenti finiscono in acqua</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Crema solare waterproof</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Cambio completo lasciato in pulmino, asciugamano dedicato</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Sacca stagna, se non la fornisce l'operatore</span></label></li>
+  </ul>
+
+  <div class="listhead">
+    <h3>In più per le due</h3>
+    <span class="count" data-count-for="lei"></span>
+  </div>
+  <ul class="check" data-list="lei">
+    <li><label><input type="checkbox"><span class="txt">1 costume aggiuntivo, copricostume o pareo</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">1 vestito per la sera a Pola</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Spazzola, elastici e mollette</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Struccante</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Prodotti per il ciclo, che il 15 i negozi sono chiusi</span></label></li>
+  </ul>
+
+  <div class="listhead">
+    <h3>Roba comune</h3>
+    <span class="count" data-count-for="comune"></span>
+  </div>
+  <p class="lead">Da dividere fra i sei, una persona responsabile per riga.</p>
+  <ul class="check" data-list="comune">
+    <li><label><input type="checkbox"><span class="txt"><strong>Ombrellone</strong>: a Kamenjak è la differenza fra una bella giornata e un'insolazione</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">2 frigo portatili grandi con siberini</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Borsone da mare, teli di scorta</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Maschere e boccagli, 3-4</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Pallone o gonfiabili per la piscina</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Sacco per il bagnato, stuoie da stendere sulla roccia</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Un coltello buono e un tagliere</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Pinza, spatola e guanto da griglia, spazzola per pulire la grata</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Cavatappi e apribottiglie</span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><strong>Moka e caffè</strong>: quasi tutte le case hanno solo il bollitore</span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><strong>Adattatori italiano-Schuko, 2 o 3.</strong> In Croazia le prese sono tipo F: le spine italiane grandi non entrano e le piccole fanno contatto lasco</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">1 ciabatta multipresa</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Torcia o frontale, per le strade bianche di Kamenjak</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Cerotti, disinfettante, garze</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Paracetamolo, ibuprofene, antistaminico</span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><strong>Pinzetta e ago sterile per gli aculei di riccio</strong>, l'infortunio statisticamente garantito di una vacanza istriana</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Gel per punture d'insetto, antidiarroico, fermenti lattici</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Aceto, che sulle meduse funziona meglio dell'acqua dolce</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Speaker bluetooth, con riguardo per gli orari di quiete</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Carte da gioco o un gioco da tavolo</span></label></li>
+  </ul>
+  <button class="reset" data-reset="comune">Azzera questa lista</button>
+
+  <h2 id="costi">Costi indicativi</h2>
+  <p class="lead">Escluso l'affitto della casa.</p>
+  <table>
+    <thead><tr><th>Voce</th><th class="num">Importo</th></tr></thead>
+    <tbody>
+      <tr><td>Carburante andata e ritorno, circa 900 km</td><td class="num">125 €</td></tr>
+      <tr><td>Pedaggi Italia, A13 e A4, categoria B</td><td class="num">60 €</td></tr>
+      <tr><td>Vignetta Slovenia</td><td class="num">0 €</td></tr>
+      <tr><td>Pedaggio A9 istriana, andata e ritorno</td><td class="num">20 €</td></tr>
+      <tr><td>Ingresso Kamenjak in auto</td><td class="num">15 €</td></tr>
+      <tr><td>Kayak, 4 persone</td><td class="num">200-240 €</td></tr>
+      <tr><td>Arena di Pola, 6 persone</td><td class="num">60 €</td></tr>
+      <tr><td>Parcheggi Pola, Rovigno e spiaggia</td><td class="num">35 €</td></tr>
+      <tr><td>Spesa a Tosano</td><td class="num">160 €</td></tr>
+      <tr><td>Spesa a Dignano</td><td class="num">190 €</td></tr>
+      <tr><td>Pranzo a Premantura, 14</td><td class="num">120 €</td></tr>
+      <tr><td>Cena a Pola, 15</td><td class="num">180 €</td></tr>
+      <tr><td>Pranzo a Rovigno, 16</td><td class="num">150 €</td></tr>
+      <tr><td>Tassa di soggiorno</td><td class="num">30 €</td></tr>
+      <tr class="total"><td>Totale</td><td class="num">1.345-1.385 €</td></tr>
+    </tbody>
+  </table>
+  <p>Circa <strong>225-230 euro a testa</strong>, trasporto e cibo compresi.</p>
+
+  <h2 id="numeri">Numeri e link utili</h2>
+  <ul class="plain">
+    <li>Parco Kamenjak: <a href="tel:+38552575283">+385 52 575 283</a> ·
+      <a href="https://shop.kamenjak.hr/en/tickets">biglietti</a></li>
+    <li>Arena di Pola: <a href="https://www.arenapula.hr/it/">arenapula.hr</a> ·
+      <a href="https://shop.ami-pula.hr">biglietti</a></li>
+    <li>Emergenze in Croazia: <a href="tel:112">112</a></li>
+    <li>Parcheggi di Rovigno:
+      <a href="https://www.rovinj-tourism.com/it/pianificazione-del-viaggio/parcheggiare-a-rovigno/parcheggi-cittadini">elenco ufficiale</a></li>
+  </ul>
+
+  <footer>
+    <p>Le caselle spuntate restano salvate su questo telefono, anche chiudendo la pagina.</p>
+    <p>Ultimo aggiornamento: 11 agosto 2026.</p>
+  </footer>
+</div>
+
+<div class="tools">
+  <button id="theme" title="Cambia tema" aria-label="Cambia tema">◐</button>
+  <button id="top" title="Torna su" aria-label="Torna su">↑</button>
+</div>
+
+<script>
+(function(){
+  var KEY='piano-croazia:v1';
+  var state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ state={}; }
+
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
+
+  function slug(s){
+    return s.toLowerCase().replace(/\s+/g,' ').trim().replace(/[^a-z0-9à-ÿćčđšž ]/g,'').slice(0,60);
+  }
+
+  function updateCount(list){
+    var name=list.dataset.list;
+    var boxes=list.querySelectorAll('input[type=checkbox]');
+    var done=list.querySelectorAll('input[type=checkbox]:checked').length;
+    var el=document.querySelector('[data-count-for="'+name+'"]');
+    if(el) el.textContent=done+' / '+boxes.length;
+  }
+
+  document.querySelectorAll('.check[data-list]').forEach(function(list){
+    var name=list.dataset.list;
+    list.querySelectorAll('li').forEach(function(li){
+      var box=li.querySelector('input[type=checkbox]');
+      var txt=li.querySelector('.txt');
+      if(!box||!txt) return;
+      var k=name+'|'+slug(txt.textContent);
+      box.dataset.k=k;
+      if(state[k]) box.checked=true;
+      box.addEventListener('change',function(){
+        if(box.checked){ state[k]=1; } else { delete state[k]; }
+        save(); updateCount(list);
+      });
+    });
+    updateCount(list);
+  });
+
+  document.querySelectorAll('[data-reset]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var name=btn.dataset.reset;
+      var list=document.querySelector('.check[data-list="'+name+'"]');
+      if(!list) return;
+      list.querySelectorAll('input[type=checkbox]').forEach(function(box){
+        box.checked=false; delete state[box.dataset.k];
+      });
+      save(); updateCount(list);
+    });
+  });
+
+  var today=new Date();
+  var iso=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+
+          String(today.getDate()).padStart(2,'0');
+  var link=document.querySelector('.days-in a[data-day="'+iso+'"]');
+  if(link){
+    link.classList.add('today');
+    link.scrollIntoView({inline:'center',block:'nearest'});
+  }
+
+  var THEME='piano-croazia:theme';
+  var saved=null;
+  try{ saved=localStorage.getItem(THEME); }catch(e){}
+  if(saved) document.documentElement.setAttribute('data-theme',saved);
+  document.getElementById('theme').addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme');
+    var isDark=cur? cur==='dark'
+      : window.matchMedia('(prefers-color-scheme:dark)').matches;
+    var next=isDark?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    try{ localStorage.setItem(THEME,next); }catch(e){}
+  });
+
+  document.getElementById('top').addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
