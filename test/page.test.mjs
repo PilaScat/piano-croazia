@@ -56,10 +56,10 @@ test('la pagina si monta con tutte le liste', async (t) => {
   const dom = open(makeServer());
   t.after(() => dom.window.close());
   const doc = dom.window.document;
-  assert.equal(doc.querySelectorAll('.check[data-list]').length, 10);
-  assert.equal(doc.querySelectorAll('.listctl .addrow').length, 10);
+  assert.equal(doc.querySelectorAll('.check[data-list]').length, 9);
+  assert.equal(doc.querySelectorAll('.listctl .addrow').length, 9);
   assert.equal(items(doc, 'bbq').length, 5);
-  assert.equal(items(doc, 'dacasa').length, 7);
+  assert.equal(items(doc, 'dacasa').length, 26);
   assert.equal(count(doc, 'bbq'), '0 / 5');
 });
 
@@ -67,8 +67,7 @@ test('il campo chi lo porta esiste solo dove serve', async (t) => {
   const dom = open(makeServer());
   t.after(() => dom.window.close());
   const doc = dom.window.document;
-  assert.equal(doc.querySelectorAll('.check[data-list="dacasa"] .who').length, 7);
-  assert.ok(doc.querySelectorAll('.check[data-list="comune"] .who').length > 0);
+  assert.equal(doc.querySelectorAll('.check[data-list="dacasa"] .who').length, 26);
   assert.equal(doc.querySelectorAll('.check[data-list="tosano"] .who').length, 0);
   assert.equal(doc.querySelectorAll('.check[data-list="bbq"] .who').length, 0);
 });
@@ -312,7 +311,7 @@ test('un nome con virgolette non rompe il campo', async (t) => {
   const restore = doc.querySelector('.check[data-list="dacasa"]').nextElementSibling
     .querySelector('[data-act="restore"]');
   restore.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
-  assert.equal(items(doc, 'dacasa').length, 7);
+  assert.equal(items(doc, 'dacasa').length, 26);
 });
 
 function edit(dom, li, testo) {
@@ -350,7 +349,7 @@ test('correggere il testo non perde la spunta ne il nome', async (t) => {
   assert.equal(dopo.querySelector('.txt').textContent.trim(), 'Olio buono');
   assert.equal(dopo.querySelector('input[type=checkbox]').checked, true);
   assert.equal(dopo.querySelector('.who').value, 'Anna');
-  assert.equal(count(doc, 'dacasa'), '1 / 7');
+  assert.equal(count(doc, 'dacasa'), '1 / 26');
 });
 
 test('si puo correggere anche una voce aggiunta a mano', async (t) => {
@@ -436,6 +435,62 @@ test('la correzione piu recente vince fra due telefoni', async (t) => {
   assert.equal(items(b.window.document, 'bbq')[0], 'secondo');
 });
 
+test('la fusione di roba comune in Da casa non perde niente', async (t) => {
+  const t0 = 1786531403397;
+  const vecchio = {
+    'c|comune|b|2 frigo portatili grandi con siberini': { v: 1, t: t0 },
+    'o|comune|b|2 frigo portatili grandi con siberini': { v: 'Scat e Pier', t: t0 + 1 },
+    'c|comune|b|carte da gioco o un gioco da tavolo': { v: 1, t: t0 + 2 },
+    'o|comune|b|carte da gioco o un gioco da tavolo': { v: 'Mery e Pier', t: t0 + 3 },
+    'n|comune|mspyqm45f3ly1': { v: { text: 'Drone' }, t: t0 + 4 },
+    'o|comune|c|mspyqm45f3ly1': { v: 'Scat', t: t0 + 5 },
+    'c|comune|c|mspyqm45f3ly1': { v: 1, t: t0 + 6 },
+    'c|dacasa|b|biscotti': { v: 1, t: t0 + 7 },
+    'o|dacasa|b|biscotti': { v: 'Scat', t: t0 + 8 },
+  };
+  const dom = open(makeServer(), JSON.stringify(vecchio));
+  t.after(() => dom.window.close());
+  const doc = dom.window.document;
+
+  assert.equal(doc.querySelectorAll('.check[data-list="comune"]').length, 0);
+
+  const righe = [...doc.querySelectorAll('.check[data-list="dacasa"] li')];
+  const trova = (testo) => righe.find((li) => li.querySelector('.txt').textContent.includes(testo));
+
+  const frigo = trova('frigo portatili');
+  assert.ok(frigo, 'i frigo devono essere finiti in Da casa');
+  assert.equal(frigo.querySelector('input[type=checkbox]').checked, true);
+  assert.equal(frigo.querySelector('.who').value, 'Scat e Pier');
+
+  const carte = trova('Carte da gioco');
+  assert.equal(carte.querySelector('.who').value, 'Mery e Pier');
+
+  const drone = trova('Drone');
+  assert.ok(drone, 'la voce aggiunta a mano deve sopravvivere');
+  assert.equal(drone.querySelector('input[type=checkbox]').checked, true);
+  assert.equal(drone.querySelector('.who').value, 'Scat');
+
+  const biscotti = trova('Biscotti');
+  assert.equal(biscotti.querySelector('.who').value, 'Scat');
+});
+
+test('la fusione e idempotente e non resuscita voci tolte', async (t) => {
+  const t0 = 1786531403397;
+  const vecchio = {
+    'c|comune|b|1 ciabatta multipresa': { v: 1, t: t0 },
+    'r|comune|b|cavatappi e apribottiglie': { v: 1, t: t0 + 1 },
+  };
+  const primo = open(makeServer(), JSON.stringify(vecchio));
+  const dopoUnGiro = primo.window.localStorage.getItem('piano-croazia:ops');
+  const testiPrimo = items(primo.window.document, 'dacasa');
+  primo.window.close();
+
+  const secondo = open(makeServer(), dopoUnGiro);
+  t.after(() => secondo.window.close());
+  assert.deepEqual(items(secondo.window.document, 'dacasa'), testiPrimo);
+  assert.ok(!testiPrimo.some((x) => x.includes('Cavatappi')), 'la voce tolta resta tolta');
+});
+
 test('spostare una voce fra liste porta con se spunta e nome', async (t) => {
   const dom = open(makeServer());
   t.after(() => dom.window.close());
@@ -453,14 +508,28 @@ test('spostare una voce fra liste porta con se spunta e nome', async (t) => {
   li.querySelector('.mv').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
   const sel = li.querySelector('.mvsel');
   assert.ok(sel);
-  assert.equal(sel.options.length, 10);
-  sel.value = 'comune';
+  assert.equal(sel.options.length, 9);
+  sel.value = 'valigia';
   fire(dom, sel, 'change');
 
   assert.ok(!items(doc, 'dacasa').includes(testo));
-  assert.ok(items(doc, 'comune').includes(testo));
-  const moved = [...doc.querySelectorAll('.check[data-list="comune"] li')]
+  assert.ok(items(doc, 'valigia').includes(testo));
+  const moved = [...doc.querySelectorAll('.check[data-list="valigia"] li')]
     .find((x) => x.querySelector('.txt').textContent.trim() === testo);
   assert.equal(moved.querySelector('input[type=checkbox]').checked, true);
-  assert.equal(moved.querySelector('.who').value, 'Anna');
+  assert.equal(moved.querySelector('.who'), null,
+    'fuori da Da casa il campo chi non esiste');
+
+  const ops = dom.window.__piano.ops();
+  assert.equal(ops['o|valigia|c|' + moved.dataset.key.split('|c|')[1]].v, 'Anna',
+    'il nome resta in memoria e torna se la voce viene rimessa in Da casa');
+
+  moved.querySelector('.mv').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
+  const back = moved.querySelector('.mvsel');
+  back.value = 'dacasa';
+  fire(dom, back, 'change');
+  const tornata = [...doc.querySelectorAll('.check[data-list="dacasa"] li')]
+    .find((x) => x.querySelector('.txt').textContent.trim() === testo);
+  assert.equal(tornata.querySelector('.who').value, 'Anna');
+  assert.equal(tornata.querySelector('input[type=checkbox]').checked, true);
 });

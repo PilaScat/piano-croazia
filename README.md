@@ -252,8 +252,9 @@ burro ne contengono tracce trascurabili e di norma si tollerano.
 
 ### Da casa
 
-Quello che portiamo noi e che quindi non va comprato. Chi lo porta si segna sulla
-pagina, nel campo accanto a ogni voce.
+Tutto quello che parte da casa e che quindi non va comprato: dispensa, attrezzatura da
+spiaggia, cucina, farmacia. Chi lo porta si segna sulla pagina, nel campo accanto a ogni
+voce, così si vede subito cosa non ha ancora preso in carico nessuno.
 
 | Cosa | Chi lo porta |
 |---|---|
@@ -264,6 +265,25 @@ pagina, nel campo accanto a ogni voce.
 | Biscotti | |
 | Torta allo yogurt | |
 | Marmellata | |
+| **Ombrellone**, che a Kamenjak è la differenza fra una bella giornata e un'insolazione | |
+| 2 frigo portatili grandi con siberini | |
+| Borsone da mare, teli di scorta | |
+| Maschere e boccagli, 3-4 | |
+| Pallone o gonfiabili per la piscina | |
+| Sacco per il bagnato, stuoie da stendere sulla roccia | |
+| Un coltello buono e un tagliere | |
+| Cavatappi e apribottiglie | |
+| **Moka e caffè**: quasi tutte le case hanno solo il bollitore | |
+| **Adattatori italiano-Schuko, 2 o 3**: in Croazia le prese sono tipo F, le spine italiane grandi non entrano e le piccole fanno contatto lasco | |
+| 1 ciabatta multipresa | |
+| Torcia o frontale, per le strade bianche di Kamenjak | |
+| Cerotti, disinfettante, garze | |
+| Paracetamolo, ibuprofene, antistaminico | |
+| **Pinzetta e ago sterile per gli aculei di riccio**, l'infortunio statisticamente garantito di una vacanza istriana | |
+| Gel per punture d'insetto, antidiarroico, fermenti lattici | |
+| Aceto, che sulle meduse funziona meglio dell'acqua dolce | |
+| Speaker bluetooth, con riguardo per gli orari di quiete | |
+| Carte da gioco o un gioco da tavolo | |
 
 ### In Italia, mercoledì 12 pomeriggio
 
@@ -410,49 +430,6 @@ città. Bagaglio morbido, non trolley rigidi: nel pulmino si incastrano meglio.
 - Spazzola, elastici e mollette
 - Struccante
 - Prodotti per il ciclo, che il 15 i negozi sono chiusi
-
-## Roba comune
-
-Da dividere fra i sei: chi la porta si segna sulla pagina, nel campo accanto a ogni
-voce, così si vede subito cosa non ha ancora preso in carico nessuno.
-
-**Spiaggia**, due giornate intere di cui una in un parco senza servizi
-
-- **Ombrellone**, che a Kamenjak è la differenza fra una bella giornata e un'insolazione
-- 2 frigo portatili grandi con siberini
-- Borsone da mare, teli di scorta
-- Maschere e boccagli, 3-4
-- Pallone o gonfiabili per la piscina
-- Sacco per il bagnato
-- Stuoie o teli da stendere sulla roccia
-
-**Cucina e griglia**, che è dove le case in affitto sono attrezzate peggio
-
-- Un coltello buono e un tagliere
-- Cavatappi e apribottiglie
-- **Moka e caffè**: quasi tutte le case hanno solo il bollitore
-
-**Elettrico**
-
-- **Adattatori italiano-Schuko, 2 o 3.** In Croazia le prese sono tipo F: le spine
-  italiane grandi non entrano e le piccole fanno contatto lasco. È il classico problema
-  di cui ci si accorge alle 23:00 con sei telefoni scarichi.
-- 1 ciabatta multipresa
-- Torcia o frontale, per le strade bianche di Kamenjak e il rientro serale
-
-**Farmacia**
-
-- Cerotti, disinfettante, garze
-- Paracetamolo, ibuprofene, antistaminico
-- **Pinzetta e ago sterile per gli aculei di riccio**, l'infortunio statisticamente
-  garantito di una vacanza istriana, e a Kamenjak ancora di più
-- Gel per punture d'insetto, antidiarroico, fermenti lattici
-- Aceto, che sulle meduse funziona meglio dell'acqua dolce
-
-**Tempo libero**
-
-- Speaker bluetooth, con riguardo per gli orari di quiete
-- Carte da gioco o un gioco da tavolo
 
 ## Costi indicativi
 
