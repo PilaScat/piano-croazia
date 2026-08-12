@@ -252,15 +252,18 @@ burro ne contengono tracce trascurabili e di norma si tollerano.
 
 ### Da casa
 
-Quello che portiamo noi e che quindi non va comprato.
+Quello che portiamo noi e che quindi non va comprato. Chi lo porta si segna sulla
+pagina, nel campo accanto a ogni voce.
 
-- Olio extravergine
-- Aglio e peperoncino
-- Sale fino e grosso
-- Pepe, origano, paprika, rosmarino
-- Biscotti
-- Torta allo yogurt
-- Marmellata
+| Cosa | Chi lo porta |
+|---|---|
+| Olio extravergine | |
+| Aglio e peperoncino | |
+| Sale fino e grosso | |
+| Pepe, origano, paprika, rosmarino | |
+| Biscotti | |
+| Torta allo yogurt | |
+| Marmellata | |
 
 ### A Tosano, giovedì 13 mattina
 
@@ -288,12 +291,6 @@ testa al giorno.
 - Caffè per moka 500 g, zucchero
 - Cracker, taralli, patatine (5 buste), frutta secca (2 buste)
 - Barrette e snack da portare a Kamenjak il 14
-
-**Per la griglia**, una sola serata, quindi un sacco basta
-
-- Carbonella o bricchetti, 1 sacco da 4 kg
-- Accendifuoco e accendino lungo
-- Carta stagnola, vaschette di alluminio, spiedini
 
 **Casa e igiene**
 
@@ -343,6 +340,18 @@ sacco del 15.
 
 **Vini locali**, il motivo per non comprare il vino in Italia: **Malvazija istarska**
 (bianco, 2-3 bottiglie) e **Teran** (rosso, 1 bottiglia).
+
+### Barbecue, da comprare in loco
+
+Spesa minima e comune. Prima si guarda cosa c'è già in casa durante il giro delle 16:30,
+poi si compra solo il mancante a Dignano alle 18:15. Serve per una sola grigliata,
+quindi non serve fare scorta.
+
+- Carbonella o bricchetti, 4 kg
+- Accendifuoco e accendino lungo
+- Carta stagnola e vaschette di alluminio
+- Pinza e guanto da griglia
+- Spazzola per pulire la grata
 
 ## Valigie
 
@@ -415,7 +424,6 @@ Da dividere fra i sei, una persona responsabile per riga.
 **Cucina e griglia**, che è dove le case in affitto sono attrezzate peggio
 
 - Un coltello buono e un tagliere
-- Pinza, spatola e guanto da griglia, spazzola per pulire la grata
 - Cavatappi e apribottiglie
 - **Moka e caffè**: quasi tutte le case hanno solo il bollitore
 

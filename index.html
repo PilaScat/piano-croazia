@@ -95,19 +95,41 @@ ul.plain{margin:0 0 14px;padding-left:20px}
 ul.plain li{margin-bottom:6px}
 
 .check{list-style:none;margin:8px 0 4px;padding:0}
-.check li{border-top:1px solid var(--line)}
+.check li{border-top:1px solid var(--line);display:flex;align-items:flex-start;gap:4px;
+  flex-wrap:wrap}
 .check li:first-child{border-top:0}
-.check label{display:flex;gap:12px;align-items:flex-start;padding:10px 2px;cursor:pointer}
-.check input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:22px;height:22px;
-  margin:1px 0 0;border:2px solid var(--line);border-radius:6px;background:var(--surface);
-  cursor:pointer;position:relative;transition:background .12s,border-color .12s}
-.check input:checked{background:var(--accent);border-color:var(--accent)}
-.check input:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
-  border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(43deg)}
-.check input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.check label{display:flex;gap:12px;align-items:flex-start;padding:10px 2px;cursor:pointer;
+  flex:1;min-width:0}
+.check input[type=checkbox]{appearance:none;-webkit-appearance:none;flex:0 0 auto;
+  width:22px;height:22px;margin:1px 0 0;border:2px solid var(--line);border-radius:6px;
+  background:var(--surface);cursor:pointer;position:relative;
+  transition:background .12s,border-color .12s}
+.check input[type=checkbox]:checked{background:var(--accent);border-color:var(--accent)}
+.check input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:2px;
+  width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(43deg)}
+.check input[type=checkbox]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .check .txt{flex:1;min-width:0}
-.check input:checked+.txt{color:var(--muted);text-decoration:line-through;
+.check input[type=checkbox]:checked+.txt{color:var(--muted);text-decoration:line-through;
   text-decoration-color:var(--line)}
+.check .acts{flex:0 0 auto;display:flex;gap:2px;padding-top:8px;align-items:flex-start}
+.who{width:88px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;
+  background:var(--surface);color:var(--text);font:inherit;font-size:.85rem;margin-right:2px}
+.who:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.who::placeholder{color:var(--muted);opacity:.75}
+.acts button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:1rem;
+  line-height:1;width:30px;height:30px;border-radius:8px;display:grid;place-items:center}
+.acts button:hover,.acts button:focus-visible{background:var(--surface-2);color:var(--text)}
+.mvsel{flex:1 0 100%;margin:0 0 10px;padding:8px 10px;border:1px solid var(--line);
+  border-radius:9px;background:var(--surface);color:var(--text);font:inherit;font-size:.9rem}
+
+.listctl{margin:6px 0 4px}
+.addrow{display:flex;gap:8px;margin:0 0 8px}
+.addrow input{flex:1;min-width:0;padding:10px 12px;border:1px solid var(--line);
+  border-radius:10px;background:var(--surface);color:var(--text);font:inherit;font-size:.94rem}
+.addrow input:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.addrow button{flex:0 0 auto;padding:0 16px;border:1px solid var(--accent);border-radius:10px;
+  background:var(--accent);color:#fff;font:inherit;font-weight:600;font-size:.9rem;cursor:pointer}
+.links{display:flex;flex-wrap:wrap;gap:14px}
 
 .listhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
   margin:22px 0 0}
@@ -127,7 +149,7 @@ tr.total td{border-bottom:0;border-top:2px solid var(--line);font-weight:700;pad
 .tools button:active{transform:scale(.94)}
 
 .reset{background:none;border:0;color:var(--muted);font-size:.8rem;cursor:pointer;
-  padding:4px 0;text-decoration:underline}
+  padding:4px 0;text-decoration:underline;font-family:inherit}
 
 footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
   color:var(--muted);font-size:.87rem}
@@ -396,8 +418,9 @@ footer a{color:var(--muted)}
     <h3>Da casa</h3>
     <span class="count" data-count-for="dacasa"></span>
   </div>
-  <p class="lead">Quello che portiamo noi e che quindi non va comprato.</p>
-  <ul class="check" data-list="dacasa">
+  <p class="lead">Quello che portiamo noi e che quindi non va comprato. Nel campo a
+  destra si scrive chi lo porta.</p>
+  <ul class="check" data-list="dacasa" data-owner="1">
     <li><label><input type="checkbox"><span class="txt">Olio extravergine</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Aglio e peperoncino</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Sale fino e grosso</span></label></li>
@@ -406,7 +429,6 @@ footer a{color:var(--muted)}
     <li><label><input type="checkbox"><span class="txt">Torta allo yogurt</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Marmellata</span></label></li>
   </ul>
-  <button class="reset" data-reset="dacasa">Azzera questa lista</button>
 
   <div class="listhead">
     <h3>Tosano, giovedì mattina</h3>
@@ -426,15 +448,11 @@ footer a{color:var(--muted)}
     <li><label><input type="checkbox"><span class="txt">Caffè per moka 500 g, zucchero</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Cracker, taralli, patatine (5 buste), frutta secca (2 buste)</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Barrette e snack da portare a Kamenjak</span></label></li>
-    <li><label><input type="checkbox"><span class="txt">Carbonella o bricchetti, 1 sacco da 4 kg</span></label></li>
-    <li><label><input type="checkbox"><span class="txt">Accendifuoco e accendino lungo</span></label></li>
-    <li><label><input type="checkbox"><span class="txt">Carta stagnola, vaschette di alluminio, spiedini</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Sacchi spazzatura, carta da cucina (4 rotoli), carta igienica</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Detersivo per piatti e spugne, sapone mani, salviette umidificate</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Crema solare 50, 3 tubi grandi, e doposole</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Repellente per zanzare e piastrine</span></label></li>
   </ul>
-  <button class="reset" data-reset="tosano">Azzera questa lista</button>
 
   <div class="listhead">
     <h3>Dignano, giovedì alle 18:15</h3>
@@ -467,7 +485,21 @@ footer a{color:var(--muted)}
     <li><label><input type="checkbox"><span class="txt">12 L d'acqua in più, da mettere in fresco la sera prima</span></label></li>
     <li><label><input type="checkbox"><span class="txt"><strong>Malvazija istarska</strong>, 2-3 bottiglie, e <strong>Teran</strong>, 1 bottiglia</span></label></li>
   </ul>
-  <button class="reset" data-reset="dignano">Azzera questa lista</button>
+
+  <div class="listhead">
+    <h3>Barbecue, da comprare in loco</h3>
+    <span class="count" data-count-for="bbq"></span>
+  </div>
+  <p class="lead">Spesa minima e comune. Prima si guarda cosa c'è già in casa durante il
+  giro delle 16:30, poi si compra solo il mancante a Dignano alle 18:15. Serve per una
+  sola grigliata, quindi non serve fare scorta.</p>
+  <ul class="check" data-list="bbq">
+    <li><label><input type="checkbox"><span class="txt">Carbonella o bricchetti, 4 kg</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Accendifuoco e accendino lungo</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Carta stagnola e vaschette di alluminio</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Pinza e guanto da griglia</span></label></li>
+    <li><label><input type="checkbox"><span class="txt">Spazzola per pulire la grata</span></label></li>
+  </ul>
 
   <h2 id="valigie">Valigie</h2>
   <p class="lead">Tre notti, quattro giorni, caldo pieno, due giornate intere in
@@ -497,7 +529,6 @@ footer a{color:var(--muted)}
     <li><label><input type="checkbox"><span class="txt">Caricabatterie, powerbank</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Contanti in euro oltre alla carta: chioschi e parcheggi non sempre hanno il POS</span></label></li>
   </ul>
-  <button class="reset" data-reset="valigia">Azzera questa lista</button>
 
   <div class="listhead">
     <h3>In più per i quattro del kayak</h3>
@@ -536,7 +567,6 @@ footer a{color:var(--muted)}
     <li><label><input type="checkbox"><span class="txt">Pallone o gonfiabili per la piscina</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Sacco per il bagnato, stuoie da stendere sulla roccia</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Un coltello buono e un tagliere</span></label></li>
-    <li><label><input type="checkbox"><span class="txt">Pinza, spatola e guanto da griglia, spazzola per pulire la grata</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Cavatappi e apribottiglie</span></label></li>
     <li><label><input type="checkbox"><span class="txt"><strong>Moka e caffè</strong>: quasi tutte le case hanno solo il bollitore</span></label></li>
     <li><label><input type="checkbox"><span class="txt"><strong>Adattatori italiano-Schuko, 2 o 3.</strong> In Croazia le prese sono tipo F: le spine italiane grandi non entrano e le piccole fanno contatto lasco</span></label></li>
@@ -550,7 +580,6 @@ footer a{color:var(--muted)}
     <li><label><input type="checkbox"><span class="txt">Speaker bluetooth, con riguardo per gli orari di quiete</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Carte da gioco o un gioco da tavolo</span></label></li>
   </ul>
-  <button class="reset" data-reset="comune">Azzera questa lista</button>
 
   <h2 id="costi">Costi indicativi</h2>
   <p class="lead">Escluso l'affitto della casa.</p>
@@ -600,50 +629,208 @@ footer a{color:var(--muted)}
 
 <script>
 (function(){
-  var KEY='piano-croazia:v1';
-  var state={};
-  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ state={}; }
+  var KEY='piano-croazia:v2';
+  var OLD='piano-croazia:v1';
+  var state={checked:{},removed:{},custom:{},owner:{}};
+
+  try{
+    var raw=JSON.parse(localStorage.getItem(KEY)||'null');
+    if(raw&&raw.checked){ state=raw; }
+    state.checked=state.checked||{}; state.removed=state.removed||{};
+    state.custom=state.custom||{}; state.owner=state.owner||{};
+  }catch(e){}
+
+  try{
+    var legacy=JSON.parse(localStorage.getItem(OLD)||'null');
+    if(legacy&&!localStorage.getItem(KEY)){
+      for(var lk in legacy){
+        var p=lk.indexOf('|');
+        if(p>0) state.checked[lk.slice(0,p)+'|b|'+lk.slice(p+1)]=1;
+      }
+    }
+  }catch(e){}
 
   function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
 
   function slug(s){
-    return s.toLowerCase().replace(/\s+/g,' ').trim().replace(/[^a-z0-9à-ÿćčđšž ]/g,'').slice(0,60);
+    return s.toLowerCase().replace(/\s+/g,' ').trim()
+      .replace(/[^a-z0-9à-ÿćčđšž ]/g,'').slice(0,60);
   }
-
-  function updateCount(list){
-    var name=list.dataset.list;
-    var boxes=list.querySelectorAll('input[type=checkbox]');
-    var done=list.querySelectorAll('input[type=checkbox]:checked').length;
-    var el=document.querySelector('[data-count-for="'+name+'"]');
-    if(el) el.textContent=done+' / '+boxes.length;
+  function esc(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
+  function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
 
-  document.querySelectorAll('.check[data-list]').forEach(function(list){
-    var name=list.dataset.list;
-    list.querySelectorAll('li').forEach(function(li){
-      var box=li.querySelector('input[type=checkbox]');
+  var lists={};
+  var order=[];
+
+  document.querySelectorAll('.check[data-list]').forEach(function(ul){
+    var name=ul.dataset.list;
+    var head=ul.previousElementSibling, title=name;
+    while(head){
+      if(head.classList&&head.classList.contains('listhead')){
+        var h=head.querySelector('h3'); if(h) title=h.textContent.trim();
+        break;
+      }
+      head=head.previousElementSibling;
+    }
+    var builtins=[];
+    ul.querySelectorAll('li').forEach(function(li){
       var txt=li.querySelector('.txt');
-      if(!box||!txt) return;
-      var k=name+'|'+slug(txt.textContent);
-      box.dataset.k=k;
-      if(state[k]) box.checked=true;
-      box.addEventListener('change',function(){
-        if(box.checked){ state[k]=1; } else { delete state[k]; }
-        save(); updateCount(list);
-      });
+      if(txt) builtins.push({key:name+'|b|'+slug(txt.textContent),html:txt.innerHTML});
     });
-    updateCount(list);
+    lists[name]={ul:ul,title:title,builtins:builtins,owner:ul.dataset.owner==='1'};
+    order.push(name);
+    state.custom[name]=state.custom[name]||[];
   });
 
-  document.querySelectorAll('[data-reset]').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var name=btn.dataset.reset;
-      var list=document.querySelector('.check[data-list="'+name+'"]');
-      if(!list) return;
-      list.querySelectorAll('input[type=checkbox]').forEach(function(box){
-        box.checked=false; delete state[box.dataset.k];
-      });
-      save(); updateCount(list);
+  function itemsOf(name){
+    var L=lists[name], out=[];
+    L.builtins.forEach(function(b){ if(!state.removed[b.key]) out.push({key:b.key,html:b.html}); });
+    state.custom[name].forEach(function(c){
+      out.push({key:name+'|c|'+c.id,html:esc(c.text),custom:true});
+    });
+    return out;
+  }
+
+  function render(name){
+    var L=lists[name];
+    var items=itemsOf(name);
+    L.ul.innerHTML='';
+    items.forEach(function(it){
+      var li=document.createElement('li');
+      li.dataset.key=it.key;
+      li.innerHTML='<label><input type="checkbox"'+(state.checked[it.key]?' checked':'')+
+        '><span class="txt">'+it.html+'</span></label>'+
+        '<span class="acts">'+
+        (L.owner? '<input class="who" type="text" placeholder="chi?" aria-label="Chi lo porta" value="'+
+          esc(state.owner[it.key]||'')+'">' : '')+
+        '<button class="mv" title="Sposta in un\'altra lista" aria-label="Sposta">&#8646;</button>'+
+        '<button class="rm" title="Togli dalla lista" aria-label="Togli">&#215;</button>'+
+        '</span>';
+      L.ul.appendChild(li);
+    });
+    updateCount(name);
+    updateLinks(name);
+  }
+
+  function updateCount(name){
+    var L=lists[name];
+    var total=L.ul.querySelectorAll('input[type=checkbox]').length;
+    var done=L.ul.querySelectorAll('input[type=checkbox]:checked').length;
+    var el=document.querySelector('[data-count-for="'+name+'"]');
+    if(el) el.textContent=done+' / '+total;
+  }
+
+  function hiddenCount(name){
+    var n=0;
+    lists[name].builtins.forEach(function(b){ if(state.removed[b.key]) n++; });
+    return n;
+  }
+
+  function updateLinks(name){
+    var ctl=lists[name].ctl; if(!ctl) return;
+    var links=ctl.querySelector('.links');
+    var hid=hiddenCount(name);
+    links.innerHTML='<button class="reset" data-act="clear">Togli i segni di spunta</button>'+
+      (hid? '<button class="reset" data-act="restore">Rimetti '+hid+
+            (hid===1?' voce tolta':' voci tolte')+'</button>' : '');
+  }
+
+  function buildControls(name){
+    var L=lists[name];
+    var ctl=document.createElement('div');
+    ctl.className='listctl';
+    ctl.innerHTML='<form class="addrow"><input type="text" placeholder="Aggiungi una voce" '+
+      'aria-label="Aggiungi una voce a '+esc(L.title)+'"><button type="submit">Aggiungi</button>'+
+      '</form><div class="links"></div>';
+    L.ul.parentNode.insertBefore(ctl,L.ul.nextSibling);
+    L.ctl=ctl;
+
+    ctl.querySelector('.addrow').addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var input=ctl.querySelector('input');
+      var v=input.value.trim();
+      if(!v) return;
+      state.custom[name].push({id:uid(),text:v});
+      input.value=''; save(); render(name); input.focus();
+    });
+
+    ctl.querySelector('.links').addEventListener('click',function(ev){
+      var b=ev.target.closest('button[data-act]'); if(!b) return;
+      if(b.dataset.act==='clear'){
+        itemsOf(name).forEach(function(it){ delete state.checked[it.key]; });
+      } else {
+        lists[name].builtins.forEach(function(x){ delete state.removed[x.key]; });
+      }
+      save(); render(name);
+    });
+  }
+
+  function removeItem(name,key){
+    if(key.indexOf(name+'|c|')===0){
+      var id=key.slice((name+'|c|').length);
+      state.custom[name]=state.custom[name].filter(function(c){ return c.id!==id; });
+    } else {
+      state.removed[key]=1;
+    }
+    delete state.checked[key];
+    delete state.owner[key];
+  }
+
+  function moveItem(from,to,key){
+    var li=lists[from].ul.querySelector('li[data-key="'+key+'"]');
+    if(!li) return;
+    var text=li.querySelector('.txt').textContent.trim();
+    var wasChecked=!!state.checked[key];
+    var id=uid();
+    state.custom[to].push({id:id,text:text});
+    if(wasChecked) state.checked[to+'|c|'+id]=1;
+    removeItem(from,key);
+    save(); render(from); render(to);
+  }
+
+  function openMove(name,li){
+    if(li.querySelector('.mvsel')) { li.querySelector('.mvsel').remove(); return; }
+    var sel=document.createElement('select');
+    sel.className='mvsel';
+    var html='<option value="" selected>Sposta in…</option>';
+    order.forEach(function(n){
+      if(n!==name) html+='<option value="'+n+'">'+esc(lists[n].title)+'</option>';
+    });
+    sel.innerHTML=html;
+    li.appendChild(sel);
+    sel.focus();
+    sel.addEventListener('change',function(){
+      if(sel.value) moveItem(name,sel.value,li.dataset.key);
+    });
+  }
+
+  order.forEach(function(name){
+    var L=lists[name];
+    buildControls(name);
+    render(name);
+    L.ul.addEventListener('change',function(ev){
+      var box=ev.target;
+      if(box.type!=='checkbox') return;
+      var key=box.closest('li').dataset.key;
+      if(box.checked){ state.checked[key]=1; } else { delete state.checked[key]; }
+      save(); updateCount(name);
+    });
+    L.ul.addEventListener('input',function(ev){
+      if(!ev.target.classList.contains('who')) return;
+      var key=ev.target.closest('li').dataset.key;
+      var v=ev.target.value.trim();
+      if(v){ state.owner[key]=v; } else { delete state.owner[key]; }
+      save();
+    });
+    L.ul.addEventListener('click',function(ev){
+      var li=ev.target.closest('li'); if(!li) return;
+      if(ev.target.closest('.rm')){
+        removeItem(name,li.dataset.key); save(); render(name);
+      } else if(ev.target.closest('.mv')){
+        openMove(name,li);
+      }
     });
   });
 
