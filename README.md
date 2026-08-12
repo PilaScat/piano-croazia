@@ -1,6 +1,6 @@
 # Vacanza in Istria — 13-16 agosto 2026
 
-Piano di viaggio per sei persone in Istria, con pulmino da 9 posti.
+Piano di viaggio per cinque persone in Istria, con pulmino da 9 posti.
 Pagina consultabile: **https://pilascat.github.io/piano-croazia/**
 
 Base a Vodnjan (Dignano), Istria. Check-in giovedì 13 agosto ore 16:00, check-out
@@ -8,11 +8,10 @@ domenica 16 agosto ore 09:00.
 
 ## Il gruppo
 
-Sei persone, quattro uomini e due donne. Pulmino da 9 posti, alto oltre 1,30 m sopra
+Cinque persone, tre uomini e due donne. Pulmino da 9 posti, alto oltre 1,30 m sopra
 l'asse anteriore. Casa con piscina e barbecue.
 
-Kayak alle grotte di Kamenjak in quattro: le due ragazze non lo fanno.
-Due persone hanno problemi con il lattosio.
+Kayak alle grotte di Kamenjak in tre: le due ragazze non lo fanno.
 
 ## Il ritmo
 
@@ -88,7 +87,7 @@ di Pola la sera del 14 rientrando da Premantura, che sta sulla strada e chiude a
 | 08:00 | Colazione |
 | 08:45 | Partenza per Premantura, 35 km via Pola, 40 minuti |
 | 09:30 | Ritrovo con l'operatore a Premantura, fuori dal parco |
-| 09:45 | **Kayak in quattro**: grotta Velika Kolombarica, snorkeling, tuffi dalle rocce |
+| 09:45 | **Kayak in tre**: grotta Velika Kolombarica, snorkeling, tuffi dalle rocce |
 | 09:45 | Le altre due in spiaggia nella zona di partenza |
 | 13:45 | Fine tour |
 | 14:00 | Pranzo insieme a Premantura |
@@ -105,7 +104,7 @@ dall'area protetta**. I caselli — Rupine e Parendine — stanno a sud del paes
 operatori di kayak sono in paese o al porticciolo.
 
 - **La mattina non si paga niente.** Si parcheggia a Premantura, le due restano in
-  paese, che ha spiaggia, bar e negozi a piedi, e i quattro partono in kayak.
+  paese, che ha spiaggia, bar e negozi a piedi, e i tre partono in kayak.
 - **Si paga una volta sola nel pomeriggio**, quando si entra tutti insieme in auto per
   la parte selvatica del parco.
 - **A piedi e in bicicletta l'ingresso è gratuito tutto l'anno.** Se le due volessero
@@ -207,7 +206,7 @@ pomeriggio, con l'Arena alle 18:00 quando il caldo cala e i gruppi sono già pas
 
 ## Prenotazioni
 
-1. **Kayak a Kamenjak per il 14**, 4 persone. Tour grotte con snorkeling, 50-60 euro a
+1. **Kayak a Kamenjak per il 14**, 3 persone. Tour grotte con snorkeling, 50-60 euro a
    testa, 3,5-5 ore. Operatori su GetYourGuide, CheckYeti e Peek, oppure diretti (Happy
    Kayak Tour Istria a Premantura). Verificare orario e punto esatto di ritrovo, se
    l'ingresso al parco è incluso, e la politica in caso di vento.
@@ -221,7 +220,7 @@ anche comprare sul posto.
 
 ## Documenti e regole auto
 
-- Carta d'identità valida per l'espatrio o passaporto **per tutti e sei**. La Croazia è
+- Carta d'identità valida per l'espatrio o passaporto **per tutti e cinque**. La Croazia è
   in Schengen e i controlli sono aboliti, ma il documento resta obbligatorio.
 - Tessera sanitaria con **TEAM** sul retro.
 - Patente di chi guida, libretto, assicurazione.
@@ -235,7 +234,7 @@ anche comprare sul posto.
   pieno lì e ripartire il 16 col serbatoio pieno.
 - Il pedaggio croato si paga al casello, contanti o carta. Sopra 1,90 m di altezza il
   pulmino è categoria II e paga circa il doppio della categoria I.
-- Tassa di soggiorno all'host, di norma 1,50-2 euro a persona per notte: circa 30 euro,
+- Tassa di soggiorno all'host, di norma 1,50-2 euro a persona per notte: circa 25 euro,
   spesso in contanti.
 
 ## Lista della spesa
@@ -329,28 +328,28 @@ testa al giorno.
 Deve coprire tre colazioni, la cena del 13, tutta la grigliata del 14 e il pranzo al
 sacco del 15.
 
-**Carne per la grigliata, sei persone, circa 3,5 kg**
+**Carne per la grigliata, cinque persone, circa 3 kg**
 
-- Ćevapčići, 1,2 kg
-- Salsicce, 800 g
-- Costine o braciole di maiale, 1 kg
-- Alette di pollo, 800 g
+- Ćevapčići, 1 kg
+- Salsicce, 700 g
+- Costine o braciole di maiale, 800 g
+- Alette di pollo, 600 g
 
 **Contorno obbligatorio ai ćevapi:** lepinje, le focacce piatte, e un vasetto di
 **ajvar**. Senza quelli sono solo polpette.
 
 **Verdura e contorni**
 
-- Melanzane 2, zucchine 4, peperoni 4, cipolle rosse 3
-- Patate 1,5 kg
-- Insalata 2 buste, pomodori 1 kg, cetrioli 2, limoni 4
+- Melanzane 2, zucchine 3, peperoni 3, cipolle rosse 2
+- Patate 1,2 kg
+- Insalata 2 buste, pomodori 800 g, cetrioli 2, limoni 3
 - Senape, ketchup, maionese
 
 **Colazioni e frigo**
 
-- Latte 2 L e **latte senza lattosio 2 L**
-- Yogurt 8, di cui almeno 3 senza lattosio
-- Burro, uova 12
+- Latte 2 L
+- Yogurt 6
+- Burro, uova 10
 - Pane, e una scorta che regga fino al 15
 - Grana o parmigiano per la pasta della sera
 - Frutta: anguria, pesche, uva
@@ -360,10 +359,10 @@ sacco del 15.
 **Pranzo al sacco del 15**, che quel giorno non si compra da nessuna parte
 
 - Pane, pršut, formaggio, pomodori, frutta già lavata
-- 12 L d'acqua in più da mettere in fresco la sera prima
+- 10 L d'acqua in più da mettere in fresco la sera prima
 
 **Vini locali**, il motivo per non comprare il vino in Italia: **Malvazija istarska**
-(bianco, 2-3 bottiglie) e **Teran** (rosso, 1 bottiglia).
+(bianco, 2 bottiglie) e **Teran** (rosso, 1 bottiglia).
 
 ### Barbecue, da comprare in loco
 
@@ -382,7 +381,7 @@ quindi non serve fare scorta.
 Tre notti, quattro giorni, caldo pieno, due giornate intere in spiaggia, una sera in
 città. Bagaglio morbido, non trolley rigidi: nel pulmino si incastrano meglio.
 
-### Per ciascuno dei sei
+### Per ciascuno dei cinque
 
 **Vestiti**
 
@@ -415,7 +414,7 @@ città. Bagaglio morbido, non trolley rigidi: nel pulmino si incastrano meglio.
 - Contanti in euro oltre alla carta: i chioschi in spiaggia e i parcheggi non sempre
   hanno il POS
 
-### In più per i quattro che fanno kayak
+### In più per i tre che fanno kayak
 
 - Maglietta tecnica o rashguard: quattro ore di sole sulle spalle bagnate bruciano
 - Cappello con laccetto e occhiali con cordino, altrimenti finiscono in acqua
@@ -487,7 +486,7 @@ condiviso in Netlify Blobs.
 
 Lo stato non è un documento che si sovrascrive, ma un registro di operazioni: ogni
 spunta, nome o voce è una chiave con una marca temporale, e nella fusione vince la più
-recente. È il motivo per cui sei persone possono modificare la stessa lista nello stesso
+recente. È il motivo per cui cinque persone possono modificare la stessa lista nello stesso
 momento senza cancellarsi a vicenda. Il client tiene la sua copia in `localStorage` e
 rimanda sempre tutto, quindi anche una scrittura persa si recupera al giro dopo.
 
