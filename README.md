@@ -409,7 +409,8 @@ città. Bagaglio morbido, non trolley rigidi: nel pulmino si incastrano meglio.
 
 ## Roba comune
 
-Da dividere fra i sei, una persona responsabile per riga.
+Da dividere fra i sei: chi la porta si segna sulla pagina, nel campo accanto a ogni
+voce, così si vede subito cosa non ha ancora preso in carico nessuno.
 
 **Spiaggia**, due giornate intere di cui una in un parco senza servizi
 

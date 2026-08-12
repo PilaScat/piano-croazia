@@ -155,6 +155,9 @@ footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
   color:var(--muted);font-size:.87rem}
 footer a{color:var(--muted)}
 
+@media (max-width:420px){
+  .who{width:72px;font-size:.8rem;padding:5px 6px}
+}
 @media (min-width:640px){
   .hero h1{font-size:2.4rem}
   .wrap{padding:0 24px 96px}
@@ -558,8 +561,9 @@ footer a{color:var(--muted)}
     <h3>Roba comune</h3>
     <span class="count" data-count-for="comune"></span>
   </div>
-  <p class="lead">Da dividere fra i sei, una persona responsabile per riga.</p>
-  <ul class="check" data-list="comune">
+  <p class="lead">Da dividere fra i sei: nel campo a destra si scrive chi la porta, così
+  si vede subito cosa non ha ancora preso in carico nessuno.</p>
+  <ul class="check" data-list="comune" data-owner="1">
     <li><label><input type="checkbox"><span class="txt"><strong>Ombrellone</strong>: a Kamenjak è la differenza fra una bella giornata e un'insolazione</span></label></li>
     <li><label><input type="checkbox"><span class="txt">2 frigo portatili grandi con siberini</span></label></li>
     <li><label><input type="checkbox"><span class="txt">Borsone da mare, teli di scorta</span></label></li>
