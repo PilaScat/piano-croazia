@@ -315,6 +315,127 @@ test('un nome con virgolette non rompe il campo', async (t) => {
   assert.equal(items(doc, 'dacasa').length, 7);
 });
 
+function edit(dom, li, testo) {
+  li.querySelector('.ed').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
+  const box = li.querySelector('.edbox');
+  box.value = testo;
+  box.dispatchEvent(new dom.window.KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+}
+
+test('si puo correggere il testo di una voce di serie', async (t) => {
+  const dom = open(makeServer());
+  t.after(() => dom.window.close());
+  const doc = dom.window.document;
+  const li = doc.querySelector('.check[data-list="bbq"] li');
+  edit(dom, li, 'Carbonella, 6 kg');
+  assert.equal(items(doc, 'bbq')[0], 'Carbonella, 6 kg');
+  assert.equal(items(doc, 'bbq').length, 5);
+});
+
+test('correggere il testo non perde la spunta ne il nome', async (t) => {
+  const dom = open(makeServer());
+  t.after(() => dom.window.close());
+  const doc = dom.window.document;
+  const li = doc.querySelector('.check[data-list="dacasa"] li');
+  const box = li.querySelector('input[type=checkbox]');
+  box.checked = true;
+  fire(dom, box, 'change');
+  const who = li.querySelector('.who');
+  who.value = 'Anna';
+  fire(dom, who, 'input');
+
+  edit(dom, doc.querySelector('.check[data-list="dacasa"] li'), 'Olio buono');
+
+  const dopo = doc.querySelector('.check[data-list="dacasa"] li');
+  assert.equal(dopo.querySelector('.txt').textContent.trim(), 'Olio buono');
+  assert.equal(dopo.querySelector('input[type=checkbox]').checked, true);
+  assert.equal(dopo.querySelector('.who').value, 'Anna');
+  assert.equal(count(doc, 'dacasa'), '1 / 7');
+});
+
+test('si puo correggere anche una voce aggiunta a mano', async (t) => {
+  const dom = open(makeServer());
+  t.after(() => dom.window.close());
+  const doc = dom.window.document;
+  const form = doc.querySelector('.check[data-list="bbq"]').nextElementSibling
+    .querySelector('.addrow');
+  form.querySelector('input').value = 'Sacco cenere';
+  form.dispatchEvent(new dom.window.Event('submit', { bubbles: true, cancelable: true }));
+  edit(dom, doc.querySelector('.check[data-list="bbq"] li:last-child'), 'Sacco per la cenere');
+  assert.equal(items(doc, 'bbq')[5], 'Sacco per la cenere');
+});
+
+test('Escape annulla la correzione', async (t) => {
+  const dom = open(makeServer());
+  t.after(() => dom.window.close());
+  const doc = dom.window.document;
+  const li = doc.querySelector('.check[data-list="bbq"] li');
+  const originale = li.querySelector('.txt').textContent.trim();
+  li.querySelector('.ed').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
+  const box = li.querySelector('.edbox');
+  box.value = 'roba a caso';
+  box.dispatchEvent(new dom.window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  assert.equal(items(doc, 'bbq')[0], originale);
+});
+
+test('un testo svuotato non cancella la voce', async (t) => {
+  const dom = open(makeServer());
+  t.after(() => dom.window.close());
+  const doc = dom.window.document;
+  const li = doc.querySelector('.check[data-list="bbq"] li');
+  const originale = li.querySelector('.txt').textContent.trim();
+  edit(dom, li, '   ');
+  assert.equal(items(doc, 'bbq')[0], originale);
+  assert.equal(items(doc, 'bbq').length, 5);
+});
+
+test('una correzione fatta con HTML dentro resta testo', async (t) => {
+  const dom = open(makeServer());
+  t.after(() => dom.window.close());
+  const doc = dom.window.document;
+  edit(dom, doc.querySelector('.check[data-list="bbq"] li'), '<b>grassetto</b>');
+  assert.equal(doc.querySelectorAll('.check[data-list="bbq"] b').length, 0);
+  assert.equal(items(doc, 'bbq')[0], '<b>grassetto</b>');
+});
+
+test('due telefoni: una correzione arriva all altro', async (t) => {
+  const server = makeServer();
+  const a = open(server);
+  const b = open(server);
+  t.after(() => { a.window.close(); b.window.close(); });
+  await flush();
+
+  edit(a, a.window.document.querySelector('.check[data-list="bbq"] li'), 'Carbonella, 6 kg');
+  a.window.__piano.sync();
+  await flush();
+
+  b.window.__piano.sync();
+  await flush();
+  assert.equal(items(b.window.document, 'bbq')[0], 'Carbonella, 6 kg');
+});
+
+test('la correzione piu recente vince fra due telefoni', async (t) => {
+  const server = makeServer();
+  const a = open(server);
+  const b = open(server);
+  t.after(() => { a.window.close(); b.window.close(); });
+  await flush();
+
+  edit(a, a.window.document.querySelector('.check[data-list="bbq"] li'), 'primo');
+  await new Promise((r) => setTimeout(r, 5));
+  edit(b, b.window.document.querySelector('.check[data-list="bbq"] li'), 'secondo');
+
+  a.window.__piano.sync();
+  await flush();
+  b.window.__piano.sync();
+  await flush();
+  a.window.__piano.sync();
+  await flush();
+
+  assert.equal(items(a.window.document, 'bbq')[0], 'secondo');
+  assert.equal(items(b.window.document, 'bbq')[0], 'secondo');
+});
+
 test('spostare una voce fra liste porta con se spunta e nome', async (t) => {
   const dom = open(makeServer());
   t.after(() => dom.window.close());

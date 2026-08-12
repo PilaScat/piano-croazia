@@ -484,9 +484,10 @@ Circa **225-230 euro a testa**, trasporto e cibo compresi.
 
 ## Come funziona la pagina
 
-Le liste sulla pagina sono **condivise fra tutti**: spunte, nomi di chi porta cosa e
-voci aggiunte a mano si propagano agli altri telefoni entro dieci secondi. Ognuno può
-aggiungere voci, toglierle e spostarle da una lista all'altra.
+Le liste sulla pagina sono **condivise fra tutti**: spunte, nomi di chi porta cosa,
+voci aggiunte e testi corretti si propagano agli altri telefoni entro dieci secondi.
+Su ogni riga ci sono tre pulsanti: **✎** corregge il testo, **⇄** sposta la voce in
+un'altra lista, **×** la toglie. In fondo a ogni lista si aggiungono voci nuove.
 
 Funziona anche senza rete: le modifiche restano sul telefono e partono da sole quando
 il segnale torna. In cima alla pagina un pallino verde dice se è sincronizzata.
