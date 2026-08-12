@@ -30,7 +30,7 @@ Due sere su quattro a casa fra piscina e barbecue.
 ### Il 15 agosto è Velika Gospa, festa nazionale croata
 
 Negozi e supermercati chiusi. E siccome il 14 si è a Premantura da mattina a sera,
-**l'unica finestra di spesa fresca è la sera del 13**: deve coprire tre colazioni, la
+**l'unica finestra di spesa è la sera del 13**: deve coprire tre colazioni, la
 cena del 13, tutta la grigliata del 14 e il pranzo al sacco del 15 in spiaggia. La carne
 in frigo per 24 ore non è un problema; restare senza lo è.
 
@@ -241,15 +241,11 @@ anche comprare sul posto.
 
 ## Lista della spesa
 
-Secco e bevande in Italia il pomeriggio prima, tutto il fresco in Croazia: nessun rischio di catena del
-freddo su sei ore di viaggio ad agosto.
+Dispensa e bibite prese in Italia il 12, birra e attrezzatura da casa, tutto il fresco a
+Dignano: nessun rischio di catena del freddo su una giornata di viaggio ad agosto.
 
-Il programma prevede tre colazioni, una cena leggera a casa, **una grigliata**, un
-pranzo al sacco in spiaggia, due pranzi fuori e una cena fuori.
-
-Due persone hanno problemi con il lattosio: latte e yogurt vanno presi anche nella
-versione senza lattosio. I formaggi molto stagionati (grana, pecorino, paški sir) e il
-burro ne contengono tracce trascurabili e di norma si tollerano.
+Il programma prevede tre colazioni, una cena a casa, **una grigliata**, un pranzo al
+sacco in spiaggia, tre pranzi fuori e una cena fuori.
 
 ### Da casa
 
@@ -286,46 +282,33 @@ voce, così si vede subito cosa non ha ancora preso in carico nessuno.
 | Speaker bluetooth, con riguardo per gli orari di quiete | |
 | Carte da gioco o un gioco da tavolo | |
 
-### In Italia, mercoledì 12 pomeriggio
+### In Italia, fatta mercoledì 12 pomeriggio
 
-Si fa il pomeriggio prima di partire e si carica il pulmino la sera stessa: 72 litri
-d'acqua più le birre sono il grosso del peso, e farlo la mattina della partenza costa
-mezz'ora che serve altrove.
+Presa all'Aliper di Copparo, **100,79 euro**. È andata leggera: la birra parte da casa e
+d'acqua ne sono entrati 21 litri, quindi il carico del pulmino è mezz'ora e non una
+serata. Resta fuori solo il seltz.
 
-**Bevande.** La voce più pesante e quella dove il prezzo italiano conviene davvero: in
-agosto, con piscina e due giornate intere di spiaggia, servono almeno 4 litri d'acqua a
-testa al giorno.
+| Voce | Prezzo |
+|---|---|
+| Acqua naturale, 6×2 L e 6×1,5 L | 4,44 € |
+| Coca 2, Coca Zero 2, Fanta 1 | 8,55 € |
+| Fuze Tea, 2 bottiglie | 2,78 € |
+| Succhi: ACE, pera, ananas | 5,32 € |
+| Tonica 3, Schweppes limone 2 | 5,90 € |
+| Alcool: 3 Prosecco, Aperol, gin | 36,56 € |
+| Pasta e sughi: 3 kg De Cecco, passata, pesto | 9,52 € |
+| Olio extravergine, 75 cl | 6,49 € |
+| Crema alle nocciole | 3,19 € |
+| Taralli | 1,99 € |
+| Caffè, capsule decaffeinate | 3,99 € |
+| Scottex 2 rotoli e spugne | 2,64 € |
+| Autan | 7,03 € |
+| Bagnodoccia | 2,39 € |
+| **Totale** | **100,79 €** |
 
-- Acqua naturale, 8 confezioni da 6×1,5 L (72 L)
-- Acqua frizzante, 2 confezioni da 6×1,5 L
-- Birra, 36 bottiglie o lattine
-- Coca, aranciata, tè freddo: 24 lattine e 4 bottiglie grandi
+Il pranzo del 13 non viaggia più nello zaino: si mangia a Parenzo.
 
-**Per il viaggio**, da consumare alla sosta delle 12:30
-
-- Pane, affettato e formaggio per i panini, oppure panini pronti
-- Frutta, 2 bottiglie d'acqua a testa a portata di mano
-
-**Per la cena del 13**, che si arriva stanchi e non si ha voglia di niente
-
-- Pasta 1 kg e 2 bottiglie di passata di pomodoro
-
-**Colazioni e dispensa**
-
-- Fette biscottate, crema alle nocciole, cereali
-- Caffè per moka 500 g, zucchero
-- Cracker, taralli, patatine (5 buste), frutta secca (2 buste)
-- Barrette e snack da portare a Kamenjak il 14
-
-**Casa e igiene**
-
-- Sacchi spazzatura, carta da cucina (4 rotoli), carta igienica
-- Detersivo per piatti e spugne, sapone mani, salviette umidificate
-- Crema solare 50, 3 tubi grandi, e doposole: due giornate intere al sole ne bruciano
-  più di quanto sembri
-- Repellente per zanzare e piastrine
-
-### A Dignano, giovedì 13 alle 18:15 — l'unica spesa fresca possibile
+### A Dignano, giovedì 13 alle 18:15 — l'unica spesa possibile
 
 Deve coprire tre colazioni, la cena del 13, tutta la grigliata del 14 e il pranzo al
 sacco del 15.
