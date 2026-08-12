@@ -20,7 +20,7 @@ Due sere su quattro a casa fra piscina e barbecue.
 
 | Giorno | |
 |---|---|
-| **Giovedì 13** | Viaggio diretto, arrivo, piscina, spesa fresca |
+| **Giovedì 13** | Viaggio, sosta a Parenzo, arrivo, spesa |
 | **Venerdì 14** | Kayak a Kamenjak la mattina, Premantura tutto il pomeriggio, grigliata |
 | **Sabato 15** | Giornata di spiaggia, sera a Pola con l'Arena |
 | **Domenica 16** | Check-out, Rovigno, rientro |
@@ -49,25 +49,26 @@ Tre avvertenze:
   instrada sulla A1 verso Lubiana la vignetta ridiventa obbligatoria, multa da 300 a
   800 euro
 
-## Giovedì 13 — viaggio, casa, piscina
+## Giovedì 13 — viaggio, Parenzo, casa
 
 | Ora | Tappa |
 |---|---|
 | 08:30 | Partenza, pulmino già carico dalla sera prima |
 | 09:00 | A13 → Padova → A4 → Trieste |
-| 12:30 | Sosta pranzo e cambio guida, 45 minuti, coi panini comprati il giorno prima |
-| 14:15 | Trieste, uscita verso Rabuiese/Muggia |
-| 14:30 | Confine Škofije → G1-11 Capodistria → tunnel Markovec → G2-111 → Isola |
-| 15:00 | Fine quattro corsie sopra Isola → strada 111: Strugnano, Portorose, Lucia |
-| 15:15 | Valico Dragogna (o Sicciole) → Umago |
-| 15:30 | A9 verso sud, uscita Vodnjan/Dignano |
-| 15:45 | **Arrivo in zona**: se si è in anticipo, Peroj è a 10 minuti per il primo bagno |
-| 16:00 | **Check-in**, scarico e giro della casa |
-| 17:15 | Bagno in piscina |
-| 18:15 | **Spesa fresca** al Lidl o Konzum di Dignano |
-| 19:45 | Rientro, cena leggera a casa e serata in piscina |
+| 11:15 | Sosta e cambio guida, 30 minuti |
+| 12:30 | Trieste, uscita verso Rabuiese/Muggia |
+| 12:45 | Confine Škofije → G1-11 Capodistria → tunnel Markovec → G2-111 → Isola |
+| 13:15 | Fine quattro corsie sopra Isola → strada 111: Strugnano, Portorose, Lucia |
+| 13:30 | Valico Dragogna (o Sicciole) → Umago |
+| 14:00 | **Parenzo**: pranzo in centro e basilica Eufrasiana |
+| 16:15 | Partenza, A9 verso sud, uscita Vodnjan/Dignano |
+| 17:00 | **Check-in**, scarico e giro della casa |
+| 18:15 | **Spesa** al Lidl o Konzum di Dignano |
+| 20:00 | Cena a casa e serata in piscina |
 
-Circa 460 km e 6h25 di guida, senza soste per la spesa: quella è già fatta e caricata.
+Circa 430 km e poco meno di cinque ore di guida, senza soste per la spesa: quella è già
+fatta e caricata. Parenzo è sull'A9, quarantacinque chilometri prima di Vodnjan: si
+parcheggia lungo la marina e il centro storico si gira a piedi in un'ora.
 Il 13 agosto è giorno di esodo: A4 verso Trieste e valico di Dragogna sono i punti
 critici, l'unica difesa è partire in orario.
 
@@ -190,8 +191,9 @@ Pellizzera** o **Gripole-Spinè**.
 
 ## Alternative
 
-**Grigliata il 13 invece del 14.** Il 13 si arriva alle 16:30 con tutta la sera libera:
-brace alle 19:00, tavola alle 20:30, e la spesa fresca appena fatta. Il 14, rientrando
+**Grigliata il 13 invece del 14.** Con la sosta a Parenzo si arriva alle 17:00 e la spesa
+è alle 18:15: la brace non si accende prima delle 20:00 e si mangia alle 21:30, quindi
+regge solo saltando Parenzo. Il 14, rientrando
 da Premantura alle 19:15 stanchi e insabbiati, si cenerebbe con qualcosa di veloce o in
 una konoba a Pola sulla strada. Sposta la serata più bella dove c'è più tempo per
 goderla, ma toglie una sera fuori.
@@ -366,7 +368,7 @@ sacco del 15.
 
 ### Barbecue, da comprare in loco
 
-Spesa minima e comune. Prima si guarda cosa c'è già in casa durante il giro delle 16:30,
+Spesa minima e comune. Prima si guarda cosa c'è già in casa durante il giro delle 17:00,
 poi si compra solo il mancante a Dignano alle 18:15. Serve per una sola grigliata,
 quindi non serve fare scorta.
 
