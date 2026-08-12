@@ -473,6 +473,9 @@ un'altra lista, **×** la toglie. In fondo a ogni lista si aggiungono voci nuove
 Funziona anche senza rete: le modifiche restano sul telefono e partono da sole quando
 il segnale torna. In cima alla pagina un pallino verde dice se è sincronizzata.
 
+Riaprendo la pagina le voci già spuntate salgono in cima. Durante la sessione l'ordine
+resta fermo: niente si sposta sotto le dita mentre si è al supermercato.
+
 ### Architettura
 
 Pagina statica senza build, più una funzione serverless su Netlify che tiene lo stato

@@ -639,6 +639,8 @@ footer a{color:var(--muted)}
     aggiornano da soli ogni dieci secondi. Su ogni riga, ✎ corregge il testo, ⇄ sposta
     la voce in un'altra lista, × la toglie. Senza rete si continua a lavorare e le
     modifiche partono al ritorno del segnale.</p>
+    <p>Riaprendo la pagina le voci già spuntate salgono in cima. Durante la sessione
+    l'ordine non cambia più, così niente si sposta mentre si è al supermercato.</p>
     <p>Ultimo aggiornamento del piano: 12 agosto 2026.</p>
   </footer>
 </div>
@@ -790,6 +792,21 @@ footer a{color:var(--muted)}
     return out;
   }
 
+  function ordinati(name,items){
+    var L=lists[name];
+    if(!L.ordine){
+      var su=[], giu=[];
+      items.forEach(function(it){ (isChecked(it.key)?su:giu).push(it.key); });
+      L.ordine=su.concat(giu);
+    }
+    var pos={};
+    L.ordine.forEach(function(k,i){ pos[k]=i; });
+    var coda=L.ordine.length;
+    return items.map(function(it,i){
+      return {it:it,p:pos[it.key]!==undefined?pos[it.key]:coda+i};
+    }).sort(function(a,b){ return a.p-b.p; }).map(function(x){ return x.it; });
+  }
+
   function sigOf(name){
     return itemsOf(name).map(function(it){
       return it.key+':'+(isChecked(it.key)?1:0)+':'+ownerOf(it.key)+':'+it.plain;
@@ -804,7 +821,7 @@ footer a{color:var(--muted)}
       keepKey=focus.closest('li').dataset.key;
       keepPos=focus.selectionStart;
     }
-    var items=itemsOf(name);
+    var items=ordinati(name,itemsOf(name));
     L.ul.innerHTML='';
     items.forEach(function(it){
       var li=document.createElement('li');
@@ -989,7 +1006,7 @@ footer a{color:var(--muted)}
     statusEl.textContent=text;
   }
 
-  var pushTimer=null, inFlight=false, pending=false;
+  var pushTimer=null, inFlight=false, pending=false, primaSync=true;
   function schedulePush(){
     if(pushTimer) clearTimeout(pushTimer);
     pushTimer=setTimeout(function(){ pushTimer=null; sync(); },PUSH_MS);
@@ -1011,7 +1028,12 @@ footer a{color:var(--muted)}
       var before=JSON.stringify(ops);
       ops=merge(ops,data.ops||{});
       fondiLista('comune','dacasa');
-      if(JSON.stringify(ops)!==before){ saveLocal(); refreshChanged(); }
+      var cambiato=JSON.stringify(ops)!==before;
+      if(cambiato) saveLocal();
+      if(primaSync){
+        primaSync=false;
+        order.forEach(function(n){ lists[n].ordine=null; render(n); });
+      } else if(cambiato){ refreshChanged(); }
       var d=new Date();
       setStatus('ok','Sincronizzato alle '+
         String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0'));

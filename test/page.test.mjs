@@ -474,6 +474,91 @@ test('la fusione di roba comune in Da casa non perde niente', async (t) => {
   assert.equal(biscotti.querySelector('.who').value, 'Scat');
 });
 
+test('riaprendo la pagina le voci spuntate stanno in cima', async (t) => {
+  const server = makeServer();
+  const primo = open(server);
+  await flush();
+  const doc1 = primo.window.document;
+  const tutte = items(doc1, 'bbq');
+  const terza = tutte[2];
+
+  const box = [...doc1.querySelectorAll('.check[data-list="bbq"] input[type=checkbox]')][2];
+  box.checked = true;
+  fire(primo, box, 'change');
+
+  assert.equal(items(doc1, 'bbq')[2], terza, 'durante la sessione la voce non si sposta');
+
+  const store = primo.window.localStorage.getItem('piano-croazia:ops');
+  primo.window.close();
+
+  const secondo = open(null, store);
+  t.after(() => secondo.window.close());
+  assert.equal(items(secondo.window.document, 'bbq')[0], terza,
+    'alla riapertura la voce spuntata sale in cima');
+  assert.equal(items(secondo.window.document, 'bbq').length, tutte.length);
+});
+
+test('riordinando non si perde nessuna voce e le altre restano in ordine', async (t) => {
+  const server = makeServer();
+  const primo = open(server);
+  await flush();
+  const doc1 = primo.window.document;
+  const originali = items(doc1, 'bbq');
+
+  const boxes = [...doc1.querySelectorAll('.check[data-list="bbq"] input[type=checkbox]')];
+  [1, 3].forEach((i) => { boxes[i].checked = true; fire(primo, boxes[i], 'change'); });
+  const store = primo.window.localStorage.getItem('piano-croazia:ops');
+  primo.window.close();
+
+  const secondo = open(null, store);
+  t.after(() => secondo.window.close());
+  const dopo = items(secondo.window.document, 'bbq');
+
+  assert.deepEqual([...dopo].sort(), [...originali].sort(), 'nessuna voce persa o duplicata');
+  assert.deepEqual(dopo.slice(0, 2), [originali[1], originali[3]], 'le spuntate in cima, nel loro ordine');
+  assert.deepEqual(dopo.slice(2), [originali[0], originali[2], originali[4]],
+    'le altre mantengono l ordine originale');
+});
+
+test('una voce aggiunta durante la sessione resta in fondo', async (t) => {
+  const server = makeServer();
+  const dom = open(server);
+  t.after(() => dom.window.close());
+  await flush();
+  const doc = dom.window.document;
+  const box = doc.querySelector('.check[data-list="bbq"] input[type=checkbox]');
+  box.checked = true;
+  fire(dom, box, 'change');
+
+  const form = doc.querySelector('.check[data-list="bbq"]').nextElementSibling
+    .querySelector('.addrow');
+  form.querySelector('input').value = 'Ultima arrivata';
+  form.dispatchEvent(new dom.window.Event('submit', { bubbles: true, cancelable: true }));
+
+  const lista = items(doc, 'bbq');
+  assert.equal(lista[lista.length - 1], 'Ultima arrivata');
+});
+
+test('chi apre da zero vede subito l ordine giusto, senza ricaricare', async (t) => {
+  const server = makeServer();
+  const primo = open(makeServer());
+  await flush();
+  const tutte = items(primo.window.document, 'bbq');
+  const terza = tutte[2];
+  const boxes = [...primo.window.document
+    .querySelectorAll('.check[data-list="bbq"] input[type=checkbox]')];
+  boxes[2].checked = true;
+  fire(primo, boxes[2], 'change');
+  server.ops = merge(server.ops, JSON.parse(primo.window.localStorage.getItem('piano-croazia:ops')));
+  primo.window.close();
+
+  const nuovo = open(server);
+  t.after(() => nuovo.window.close());
+  await flush();
+  assert.equal(items(nuovo.window.document, 'bbq')[0], terza,
+    'il riordino avviene dopo la prima sincronizzazione, non al reload successivo');
+});
+
 test('una modifica fatta da chi ha ancora la pagina vecchia arriva lo stesso', async (t) => {
   const server = makeServer();
   const nuovo = open(server);
