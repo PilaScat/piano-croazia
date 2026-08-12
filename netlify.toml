@@ -1,7 +1,12 @@
 [build]
-  publish = "."
+  publish = "public"
   functions = "netlify/functions"
-  command = "echo nessuna build"
+  command = "mkdir -p public && cp index.html public/index.html"
 
 [functions]
   node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
