@@ -282,32 +282,6 @@ voce, così si vede subito cosa non ha ancora preso in carico nessuno.
 | Speaker bluetooth, con riguardo per gli orari di quiete | |
 | Carte da gioco o un gioco da tavolo | |
 
-### In Italia, fatta mercoledì 12 pomeriggio
-
-Presa all'Aliper di Copparo, **100,79 euro**. È andata leggera: la birra parte da casa e
-d'acqua ne sono entrati 21 litri, quindi il carico del pulmino è mezz'ora e non una
-serata. Resta fuori solo il seltz.
-
-| Voce | Prezzo |
-|---|---|
-| Acqua naturale, 6×2 L e 6×1,5 L | 4,44 € |
-| Coca 2, Coca Zero 2, Fanta 1 | 8,55 € |
-| Fuze Tea, 2 bottiglie | 2,78 € |
-| Succhi: ACE, pera, ananas | 5,32 € |
-| Tonica 3, Schweppes limone 2 | 5,90 € |
-| Alcool: 3 Prosecco, Aperol, gin | 36,56 € |
-| Pasta e sughi: 3 kg De Cecco, passata, pesto | 9,52 € |
-| Olio extravergine, 75 cl | 6,49 € |
-| Crema alle nocciole | 3,19 € |
-| Taralli | 1,99 € |
-| Caffè, capsule decaffeinate | 3,99 € |
-| Scottex 2 rotoli e spugne | 2,64 € |
-| Autan | 7,03 € |
-| Bagnodoccia | 2,39 € |
-| **Totale** | **100,79 €** |
-
-Il pranzo del 13 non viaggia più nello zaino: si mangia a Parenzo.
-
 ### A Dignano, giovedì 13 alle 18:15 — l'unica spesa possibile
 
 Deve coprire tre colazioni, la cena del 13, tutta la grigliata del 14 e il pranzo al
@@ -360,6 +334,31 @@ quindi non serve fare scorta.
 - Carta stagnola e vaschette di alluminio
 - Pinza e guanto da griglia
 - Spazzola per pulire la grata
+
+### Lo scontrino del 12 agosto
+
+Presa all'Aliper di Copparo, **100,79 euro**. È andata leggera: la birra parte da casa e
+d'acqua ne sono entrati 21 litri, quindi il carico del pulmino è mezz'ora e non una
+serata. Non è rimasto niente in sospeso: il seltz è passato nella lista di Dignano, e il
+pranzo del 13 non viaggia più nello zaino perché si mangia a Parenzo.
+
+| Voce | Prezzo |
+|---|---|
+| Acqua naturale, 6×2 L e 6×1,5 L | 4,44 € |
+| Coca 2, Coca Zero 2, Fanta 1 | 8,55 € |
+| Fuze Tea, 2 bottiglie | 2,78 € |
+| Succhi: ACE, pera, ananas | 5,32 € |
+| Tonica 3, Schweppes limone 2 | 5,90 € |
+| Alcool: 3 Prosecco, Aperol, gin | 36,56 € |
+| Pasta e sughi: 3 kg De Cecco, passata, pesto | 9,52 € |
+| Olio extravergine, 75 cl | 6,49 € |
+| Crema alle nocciole | 3,19 € |
+| Taralli | 1,99 € |
+| Caffè, capsule decaffeinate | 3,99 € |
+| Scottex 2 rotoli e spugne | 2,64 € |
+| Autan | 7,03 € |
+| Bagnodoccia | 2,39 € |
+| **Totale** | **100,79 €** |
 
 ## Valigie
 

@@ -56,8 +56,8 @@ test('la pagina si monta con tutte le liste', async (t) => {
   const dom = open(makeServer());
   t.after(() => dom.window.close());
   const doc = dom.window.document;
-  assert.equal(doc.querySelectorAll('.check[data-list]').length, 9);
-  assert.equal(doc.querySelectorAll('.listctl .addrow').length, 9);
+  assert.equal(doc.querySelectorAll('.check[data-list]').length, 8);
+  assert.equal(doc.querySelectorAll('.listctl .addrow').length, 8);
   assert.equal(items(doc, 'bbq').length, 5);
   assert.equal(items(doc, 'dacasa').length, 26);
   assert.equal(count(doc, 'bbq'), '0 / 5');
@@ -68,18 +68,18 @@ test('il campo chi lo porta esiste solo dove serve', async (t) => {
   t.after(() => dom.window.close());
   const doc = dom.window.document;
   assert.equal(doc.querySelectorAll('.check[data-list="dacasa"] .who').length, 26);
-  assert.equal(doc.querySelectorAll('.check[data-list="tosano"] .who').length, 0);
+  assert.equal(doc.querySelectorAll('.check[data-list="dignano"] .who').length, 0);
   assert.equal(doc.querySelectorAll('.check[data-list="bbq"] .who').length, 0);
 });
 
-test('la roba da barbecue non e piu nella spesa di Tosano', async (t) => {
+test('la roba da barbecue non e piu nella spesa di Dignano', async (t) => {
   const dom = open(makeServer());
   t.after(() => dom.window.close());
   const doc = dom.window.document;
-  const tosano = items(doc, 'tosano').join(' ').toLowerCase();
-  assert.ok(!tosano.includes('carbonella'));
-  assert.ok(!tosano.includes('accendifuoco'));
-  assert.ok(!tosano.includes('olio'));
+  const dignano = items(doc, 'dignano').join(' ').toLowerCase();
+  assert.ok(!dignano.includes('carbonella'));
+  assert.ok(!dignano.includes('accendifuoco'));
+  assert.ok(!dignano.includes('olio'));
   assert.ok(items(doc, 'bbq').join(' ').toLowerCase().includes('carbonella'));
 });
 
@@ -701,7 +701,7 @@ test('spostare una voce fra liste porta con se spunta e nome', async (t) => {
   li.querySelector('.mv').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
   const sel = li.querySelector('.mvsel');
   assert.ok(sel);
-  assert.equal(sel.options.length, 9);
+  assert.equal(sel.options.length, 8);
   sel.value = 'valigia';
   fire(dom, sel, 'change');
 
