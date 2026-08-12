@@ -795,9 +795,17 @@ footer a{color:var(--muted)}
   function ordinati(name,items){
     var L=lists[name];
     if(!L.ordine){
-      var su=[], giu=[];
-      items.forEach(function(it){ (isChecked(it.key)?su:giu).push(it.key); });
-      L.ordine=su.concat(giu);
+      L.ordine=items.map(function(it,i){
+        return {k:it.key,fatta:isChecked(it.key)?0:1,chi:ownerOf(it.key).trim(),i:i};
+      }).sort(function(a,b){
+        if(a.fatta!==b.fatta) return a.fatta-b.fatta;
+        if(!a.chi!==!b.chi) return a.chi?-1:1;
+        if(a.chi&&b.chi){
+          var c=a.chi.localeCompare(b.chi,'it',{sensitivity:'base'});
+          if(c) return c;
+        }
+        return a.i-b.i;
+      }).map(function(x){ return x.k; });
     }
     var pos={};
     L.ordine.forEach(function(k,i){ pos[k]=i; });

@@ -520,6 +520,92 @@ test('riordinando non si perde nessuna voce e le altre restano in ordine', async
     'le altre mantengono l ordine originale');
 });
 
+test('alla riapertura le voci si raggruppano per chi le porta', async (t) => {
+  const primo = open(makeServer());
+  await flush();
+  const doc1 = primo.window.document;
+  const righe = [...doc1.querySelectorAll('.check[data-list="dacasa"] li')];
+  const nome = (i, chi) => {
+    const w = righe[i].querySelector('.who');
+    w.value = chi;
+    fire(primo, w, 'input');
+  };
+  const testo = (i) => righe[i].querySelector('.txt').textContent.trim();
+  const t0 = testo(0), t2 = testo(2), t4 = testo(4), t6 = testo(6);
+  nome(0, 'Pier');
+  nome(2, 'Anna');
+  nome(4, 'Pier');
+  nome(6, 'anna');
+
+  const store = primo.window.localStorage.getItem('piano-croazia:ops');
+  primo.window.close();
+
+  const secondo = open(null, store);
+  t.after(() => secondo.window.close());
+  const dopo = items(secondo.window.document, 'dacasa');
+
+  assert.deepEqual(dopo.slice(0, 4), [t2, t6, t0, t4],
+    'prima le due di Anna, poi le due di Pier, ognuna nel suo ordine');
+  assert.equal(dopo.length, righe.length, 'nessuna voce persa');
+  assert.ok(!dopo.slice(4).some((x) => [t0, t2, t4, t6].includes(x)),
+    'le voci assegnate non restano anche in fondo');
+});
+
+test('le voci senza nome finiscono dopo quelle assegnate', async (t) => {
+  const primo = open(makeServer());
+  await flush();
+  const doc1 = primo.window.document;
+  const righe = [...doc1.querySelectorAll('.check[data-list="dacasa"] li')];
+  const ultima = righe[righe.length - 1].querySelector('.txt').textContent.trim();
+  const w = righe[righe.length - 1].querySelector('.who');
+  w.value = 'Scat';
+  fire(primo, w, 'input');
+
+  const store = primo.window.localStorage.getItem('piano-croazia:ops');
+  primo.window.close();
+
+  const secondo = open(null, store);
+  t.after(() => secondo.window.close());
+  assert.equal(items(secondo.window.document, 'dacasa')[0], ultima,
+    'l unica assegnata passa in testa');
+});
+
+test('spuntato batte il nome nell ordinamento', async (t) => {
+  const primo = open(makeServer());
+  await flush();
+  const doc1 = primo.window.document;
+  const righe = [...doc1.querySelectorAll('.check[data-list="dacasa"] li')];
+  const spuntataSenzaNome = righe[5].querySelector('.txt').textContent.trim();
+  const box = righe[5].querySelector('input[type=checkbox]');
+  box.checked = true;
+  fire(primo, box, 'change');
+
+  const w = righe[1].querySelector('.who');
+  w.value = 'Anna';
+  fire(primo, w, 'input');
+
+  const store = primo.window.localStorage.getItem('piano-croazia:ops');
+  primo.window.close();
+
+  const secondo = open(null, store);
+  t.after(() => secondo.window.close());
+  assert.equal(items(secondo.window.document, 'dacasa')[0], spuntataSenzaNome,
+    'la voce gia fatta sta sopra a quella solo assegnata');
+});
+
+test('scrivere un nome non riordina la lista sotto le dita', async (t) => {
+  const dom = open(makeServer());
+  t.after(() => dom.window.close());
+  await flush();
+  const doc = dom.window.document;
+  const prima = items(doc, 'dacasa');
+  const righe = [...doc.querySelectorAll('.check[data-list="dacasa"] li')];
+  const w = righe[righe.length - 1].querySelector('.who');
+  w.value = 'Anna';
+  fire(dom, w, 'input');
+  assert.deepEqual(items(doc, 'dacasa'), prima);
+});
+
 test('una voce aggiunta durante la sessione resta in fondo', async (t) => {
   const server = makeServer();
   const dom = open(server);
