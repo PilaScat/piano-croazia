@@ -347,7 +347,7 @@ sacco del 15.
 - 10 L d'acqua in più da mettere in fresco la sera prima
 
 **Vini locali**, il motivo per non comprare il vino in Italia: **Malvazija istarska**
-(bianco, 2 bottiglie) e **Teran** (rosso, 1 bottiglia).
+(bianco, 2 bottiglie) e **Teran** (rosso, 1 bottiglia). E il **seltz**, se costa poco.
 
 ### Barbecue, da comprare in loco
 
