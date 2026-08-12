@@ -426,18 +426,19 @@ Escluso l'affitto della casa.
 | Vignetta Slovenia | 0 € |
 | Pedaggio A9 istriana, andata e ritorno | 20 € |
 | Ingresso Kamenjak in auto | 15 € |
-| Kayak, 4 persone | 200-240 € |
-| Arena di Pola, 6 persone | 60 € |
-| Parcheggi Pola, Rovigno e spiaggia del 15 | 35 € |
-| Spesa secca in Italia | 160 € |
-| Spesa a Dignano | 190 € |
-| Pranzo a Premantura, 14 | 120 € |
-| Cena a Pola, 15 | 180 € |
-| Pranzo a Rovigno, 16 | 150 € |
-| Tassa di soggiorno | 30 € |
-| **Totale** | **1.345-1.385 €** |
+| Kayak, 3 persone | 150-180 € |
+| Arena di Pola, 5 persone | 50 € |
+| Parcheggi Parenzo, Pola, Rovigno e spiaggia del 15 | 45 € |
+| Spesa in Italia, fatta il 12 | 100,79 € |
+| Spesa a Dignano | 150 € |
+| Pranzo a Parenzo, 13 | 100 € |
+| Pranzo a Premantura, 14 | 100 € |
+| Cena a Pola, 15 | 150 € |
+| Pranzo a Rovigno, 16 | 125 € |
+| Tassa di soggiorno | 25 € |
+| **Totale** | **1.215-1.245 €** |
 
-Circa **225-230 euro a testa**, trasporto e cibo compresi.
+Circa **245-250 euro a testa**, trasporto e cibo compresi.
 
 ## Da verificare prima di partire
 
