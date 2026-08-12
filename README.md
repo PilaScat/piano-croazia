@@ -339,7 +339,7 @@ sacco del 15.
 - Grana o parmigiano per la pasta della sera
 - Frutta: anguria, pesche, uva
 - Prosciutto istriano (pršut) e formaggio stagionato per gli aperitivi in piscina
-- Ghiaccio, 3 sacchi
+- Ghiaccio, 2 sacchi
 
 **Pranzo al sacco del 15**, che quel giorno non si compra da nessuna parte
 
