@@ -122,6 +122,14 @@ ul.plain li{margin-bottom:6px}
 .mvsel{flex:1 0 100%;margin:0 0 10px;padding:8px 10px;border:1px solid var(--line);
   border-radius:9px;background:var(--surface);color:var(--text);font:inherit;font-size:.9rem}
 
+.sync{font-size:.8rem;color:var(--muted);margin:0 0 16px;display:flex;align-items:center;
+  gap:7px}
+.sync::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--muted);
+  flex:0 0 auto}
+.sync.ok::before{background:var(--ok)}
+.sync.err::before{background:var(--warn)}
+.sync.err{color:var(--warn)}
+
 .listctl{margin:6px 0 4px}
 .addrow{display:flex;gap:8px;margin:0 0 8px}
 .addrow input{flex:1;min-width:0;padding:10px 12px;border:1px solid var(--line);
@@ -193,6 +201,8 @@ footer a{color:var(--muted)}
 </nav>
 
 <div class="wrap">
+
+  <p class="sync" id="sync">Sincronizzo…</p>
 
   <div class="alert">
     <span class="t">Il 15 agosto in Croazia è Velika Gospa</span>
@@ -621,8 +631,10 @@ footer a{color:var(--muted)}
   </ul>
 
   <footer>
-    <p>Le caselle spuntate restano salvate su questo telefono, anche chiudendo la pagina.</p>
-    <p>Ultimo aggiornamento: 11 agosto 2026.</p>
+    <p>Spunte, nomi e voci aggiunte sono condivisi fra tutti: si aggiornano da soli ogni
+    dieci secondi. Senza rete si continua a lavorare e le modifiche partono al ritorno
+    del segnale.</p>
+    <p>Ultimo aggiornamento del piano: 12 agosto 2026.</p>
   </footer>
 </div>
 
@@ -633,40 +645,78 @@ footer a{color:var(--muted)}
 
 <script>
 (function(){
-  var KEY='piano-croazia:v2';
-  var OLD='piano-croazia:v1';
-  var state={checked:{},removed:{},custom:{},owner:{}};
+  var API_HOST='https://piano-croazia.netlify.app';
+  var OPS_KEY='piano-croazia:ops';
+  var THEME='piano-croazia:theme';
+  var POLL_MS=10000;
+  var PUSH_MS=800;
 
-  try{
-    var raw=JSON.parse(localStorage.getItem(KEY)||'null');
-    if(raw&&raw.checked){ state=raw; }
-    state.checked=state.checked||{}; state.removed=state.removed||{};
-    state.custom=state.custom||{}; state.owner=state.owner||{};
-  }catch(e){}
+  var api=(location.hostname==='localhost'||/netlify\.app$/.test(location.hostname)||
+           location.protocol==='file:')? '/api/state' : API_HOST+'/api/state';
 
-  try{
-    var legacy=JSON.parse(localStorage.getItem(OLD)||'null');
-    if(legacy&&!localStorage.getItem(KEY)){
-      for(var lk in legacy){
+  var ops={};
+  try{ ops=JSON.parse(localStorage.getItem(OPS_KEY)||'{}')||{}; }catch(e){ ops={}; }
+
+  function saveLocal(){ try{ localStorage.setItem(OPS_KEY,JSON.stringify(ops)); }catch(e){} }
+
+  function merge(base,incoming){
+    var out={},k;
+    for(k in base) out[k]=base[k];
+    if(!incoming||typeof incoming!=='object') return out;
+    for(k in incoming){
+      var b=incoming[k];
+      if(!b||typeof b!=='object'||typeof b.t!=='number') continue;
+      var a=out[k];
+      if(!a||typeof a.t!=='number'||b.t>a.t){ out[k]={v:b.v,t:b.t}; }
+      else if(b.t===a.t&&JSON.stringify(b.v)>JSON.stringify(a.v)){ out[k]={v:b.v,t:b.t}; }
+    }
+    return out;
+  }
+
+  function migrate(){
+    if(Object.keys(ops).length) return;
+    var t=1, legacy=null;
+    try{ legacy=JSON.parse(localStorage.getItem('piano-croazia:v2')||'null'); }catch(e){}
+    if(legacy){
+      var k;
+      for(k in (legacy.checked||{})) ops['c|'+k]={v:1,t:t};
+      for(k in (legacy.removed||{})) ops['r|'+k]={v:1,t:t};
+      for(k in (legacy.owner||{})) ops['o|'+k]={v:legacy.owner[k],t:t};
+      for(var list in (legacy.custom||{})){
+        (legacy.custom[list]||[]).forEach(function(c){
+          ops['n|'+list+'|'+c.id]={v:{text:c.text},t:t};
+        });
+      }
+      return;
+    }
+    var v1=null;
+    try{ v1=JSON.parse(localStorage.getItem('piano-croazia:v1')||'null'); }catch(e){}
+    if(v1){
+      for(var lk in v1){
         var p=lk.indexOf('|');
-        if(p>0) state.checked[lk.slice(0,p)+'|b|'+lk.slice(p+1)]=1;
+        if(p>0) ops['c|'+lk.slice(0,p)+'|b|'+lk.slice(p+1)]={v:1,t:t};
       }
     }
-  }catch(e){}
+  }
+  migrate();
 
-  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
+  function set(key,v){ ops[key]={v:v,t:Date.now()}; saveLocal(); schedulePush(); }
+  function get(key){ var o=ops[key]; return o? o.v : undefined; }
+  function isChecked(k){ return get('c|'+k)===1; }
+  function isRemoved(k){ return get('r|'+k)===1; }
+  function ownerOf(k){ return get('o|'+k)||''; }
 
   function slug(s){
     return s.toLowerCase().replace(/\s+/g,' ').trim()
       .replace(/[^a-z0-9à-ÿćčđšž ]/g,'').slice(0,60);
   }
   function esc(s){
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
   }
   function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
 
-  var lists={};
-  var order=[];
+  var lists={}, order=[];
 
   document.querySelectorAll('.check[data-list]').forEach(function(ul){
     var name=ul.dataset.list;
@@ -683,37 +733,65 @@ footer a{color:var(--muted)}
       var txt=li.querySelector('.txt');
       if(txt) builtins.push({key:name+'|b|'+slug(txt.textContent),html:txt.innerHTML});
     });
-    lists[name]={ul:ul,title:title,builtins:builtins,owner:ul.dataset.owner==='1'};
+    lists[name]={ul:ul,title:title,builtins:builtins,owner:ul.dataset.owner==='1',sig:''};
     order.push(name);
-    state.custom[name]=state.custom[name]||[];
   });
+
+  function customOf(name){
+    var pre='n|'+name+'|', out=[];
+    for(var k in ops){
+      if(k.indexOf(pre)!==0) continue;
+      var o=ops[k];
+      if(!o||o.v===null||o.v===undefined) continue;
+      out.push({id:k.slice(pre.length),text:o.v.text,t:o.t});
+    }
+    out.sort(function(a,b){ return a.t-b.t; });
+    return out;
+  }
 
   function itemsOf(name){
     var L=lists[name], out=[];
-    L.builtins.forEach(function(b){ if(!state.removed[b.key]) out.push({key:b.key,html:b.html}); });
-    state.custom[name].forEach(function(c){
+    L.builtins.forEach(function(b){ if(!isRemoved(b.key)) out.push({key:b.key,html:b.html}); });
+    customOf(name).forEach(function(c){
       out.push({key:name+'|c|'+c.id,html:esc(c.text),custom:true});
     });
     return out;
   }
 
+  function sigOf(name){
+    return itemsOf(name).map(function(it){
+      return it.key+':'+(isChecked(it.key)?1:0)+':'+ownerOf(it.key);
+    }).join('~')+'#'+hiddenCount(name);
+  }
+
   function render(name){
     var L=lists[name];
+    var focus=document.activeElement;
+    var keepKey=null, keepPos=0;
+    if(focus&&focus.classList&&focus.classList.contains('who')&&L.ul.contains(focus)){
+      keepKey=focus.closest('li').dataset.key;
+      keepPos=focus.selectionStart;
+    }
     var items=itemsOf(name);
     L.ul.innerHTML='';
     items.forEach(function(it){
       var li=document.createElement('li');
       li.dataset.key=it.key;
-      li.innerHTML='<label><input type="checkbox"'+(state.checked[it.key]?' checked':'')+
+      li.innerHTML='<label><input type="checkbox"'+(isChecked(it.key)?' checked':'')+
         '><span class="txt">'+it.html+'</span></label>'+
         '<span class="acts">'+
         (L.owner? '<input class="who" type="text" placeholder="chi?" aria-label="Chi lo porta" value="'+
-          esc(state.owner[it.key]||'')+'">' : '')+
+          esc(ownerOf(it.key))+'">' : '')+
         '<button class="mv" title="Sposta in un\'altra lista" aria-label="Sposta">&#8646;</button>'+
         '<button class="rm" title="Togli dalla lista" aria-label="Togli">&#215;</button>'+
         '</span>';
       L.ul.appendChild(li);
     });
+    if(keepKey){
+      var back=L.ul.querySelector('li[data-key="'+keepKey+'"] .who');
+      if(back){ back.focus(); try{ back.setSelectionRange(keepPos,keepPos); }catch(e){} }
+    }
+    L.sig=sigOf(name);
     updateCount(name);
     updateLinks(name);
   }
@@ -728,7 +806,7 @@ footer a{color:var(--muted)}
 
   function hiddenCount(name){
     var n=0;
-    lists[name].builtins.forEach(function(b){ if(state.removed[b.key]) n++; });
+    lists[name].builtins.forEach(function(b){ if(isRemoved(b.key)) n++; });
     return n;
   }
 
@@ -756,46 +834,46 @@ footer a{color:var(--muted)}
       var input=ctl.querySelector('input');
       var v=input.value.trim();
       if(!v) return;
-      state.custom[name].push({id:uid(),text:v});
-      input.value=''; save(); render(name); input.focus();
+      set('n|'+name+'|'+uid(),{text:v});
+      input.value=''; render(name); input.focus();
     });
 
     ctl.querySelector('.links').addEventListener('click',function(ev){
       var b=ev.target.closest('button[data-act]'); if(!b) return;
       if(b.dataset.act==='clear'){
-        itemsOf(name).forEach(function(it){ delete state.checked[it.key]; });
+        itemsOf(name).forEach(function(it){ if(isChecked(it.key)) set('c|'+it.key,0); });
       } else {
-        lists[name].builtins.forEach(function(x){ delete state.removed[x.key]; });
+        lists[name].builtins.forEach(function(x){ if(isRemoved(x.key)) set('r|'+x.key,0); });
       }
-      save(); render(name);
+      render(name);
     });
   }
 
   function removeItem(name,key){
-    if(key.indexOf(name+'|c|')===0){
-      var id=key.slice((name+'|c|').length);
-      state.custom[name]=state.custom[name].filter(function(c){ return c.id!==id; });
-    } else {
-      state.removed[key]=1;
-    }
-    delete state.checked[key];
-    delete state.owner[key];
+    var pre=name+'|c|';
+    if(key.indexOf(pre)===0){ set('n|'+name+'|'+key.slice(pre.length),null); }
+    else { set('r|'+key,1); }
+    if(isChecked(key)) set('c|'+key,0);
+    if(ownerOf(key)) set('o|'+key,'');
   }
 
   function moveItem(from,to,key){
     var li=lists[from].ul.querySelector('li[data-key="'+key+'"]');
     if(!li) return;
     var text=li.querySelector('.txt').textContent.trim();
-    var wasChecked=!!state.checked[key];
+    var wasChecked=isChecked(key), who=ownerOf(key);
     var id=uid();
-    state.custom[to].push({id:id,text:text});
-    if(wasChecked) state.checked[to+'|c|'+id]=1;
+    set('n|'+to+'|'+id,{text:text});
+    var newKey=to+'|c|'+id;
+    if(wasChecked) set('c|'+newKey,1);
+    if(who) set('o|'+newKey,who);
     removeItem(from,key);
-    save(); render(from); render(to);
+    render(from); render(to);
   }
 
   function openMove(name,li){
-    if(li.querySelector('.mvsel')) { li.querySelector('.mvsel').remove(); return; }
+    var existing=li.querySelector('.mvsel');
+    if(existing){ existing.remove(); return; }
     var sel=document.createElement('select');
     sel.className='mvsel';
     var html='<option value="" selected>Sposta in…</option>';
@@ -818,25 +896,73 @@ footer a{color:var(--muted)}
       var box=ev.target;
       if(box.type!=='checkbox') return;
       var key=box.closest('li').dataset.key;
-      if(box.checked){ state.checked[key]=1; } else { delete state.checked[key]; }
-      save(); updateCount(name);
+      set('c|'+key,box.checked?1:0);
+      L.sig=sigOf(name);
+      updateCount(name);
     });
     L.ul.addEventListener('input',function(ev){
       if(!ev.target.classList.contains('who')) return;
       var key=ev.target.closest('li').dataset.key;
-      var v=ev.target.value.trim();
-      if(v){ state.owner[key]=v; } else { delete state.owner[key]; }
-      save();
+      set('o|'+key,ev.target.value.trim());
+      L.sig=sigOf(name);
     });
     L.ul.addEventListener('click',function(ev){
       var li=ev.target.closest('li'); if(!li) return;
-      if(ev.target.closest('.rm')){
-        removeItem(name,li.dataset.key); save(); render(name);
-      } else if(ev.target.closest('.mv')){
-        openMove(name,li);
-      }
+      if(ev.target.closest('.rm')){ removeItem(name,li.dataset.key); render(name); }
+      else if(ev.target.closest('.mv')){ openMove(name,li); }
     });
   });
+
+  function refreshChanged(){
+    order.forEach(function(name){
+      if(sigOf(name)!==lists[name].sig) render(name);
+    });
+  }
+
+  var statusEl=document.getElementById('sync');
+  function setStatus(kind,text){
+    if(!statusEl) return;
+    statusEl.className='sync '+kind;
+    statusEl.textContent=text;
+  }
+
+  var pushTimer=null, inFlight=false, pending=false;
+  function schedulePush(){
+    if(pushTimer) clearTimeout(pushTimer);
+    pushTimer=setTimeout(function(){ pushTimer=null; sync(); },PUSH_MS);
+  }
+
+  function sync(){
+    if(inFlight){ pending=true; return; }
+    if(typeof fetch!=='function') return;
+    inFlight=true;
+    setStatus('busy','Sincronizzo…');
+    fetch(api,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({ops:ops})
+    }).then(function(r){
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.json();
+    }).then(function(data){
+      var before=JSON.stringify(ops);
+      ops=merge(ops,data.ops||{});
+      if(JSON.stringify(ops)!==before){ saveLocal(); refreshChanged(); }
+      var d=new Date();
+      setStatus('ok','Sincronizzato alle '+
+        String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0'));
+    }).catch(function(){
+      setStatus('err','Non sincronizzato: le modifiche restano su questo telefono');
+    }).then(function(){
+      inFlight=false;
+      if(pending){ pending=false; schedulePush(); }
+    });
+  }
+
+  setInterval(function(){ if(!document.hidden) sync(); },POLL_MS);
+  document.addEventListener('visibilitychange',function(){ if(!document.hidden) sync(); });
+  window.addEventListener('online',sync);
+  sync();
 
   var today=new Date();
   var iso=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+
@@ -847,7 +973,6 @@ footer a{color:var(--muted)}
     link.scrollIntoView({inline:'center',block:'nearest'});
   }
 
-  var THEME='piano-croazia:theme';
   var saved=null;
   try{ saved=localStorage.getItem(THEME); }catch(e){}
   if(saved) document.documentElement.setAttribute('data-theme',saved);
@@ -863,6 +988,9 @@ footer a{color:var(--muted)}
   document.getElementById('top').addEventListener('click',function(){
     window.scrollTo({top:0,behavior:'smooth'});
   });
+
+  window.__piano={merge:merge,ops:function(){ return ops; },sync:sync,
+    itemsOf:itemsOf,isChecked:isChecked,ownerOf:ownerOf};
 })();
 </script>
 </body>

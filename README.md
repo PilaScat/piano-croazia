@@ -482,6 +482,51 @@ Circa **225-230 euro a testa**, trasporto e cibo compresi.
 - Che il navigatore non instradi sulla A1 verso Lubiana, che farebbe scattare l'obbligo
   di vignetta
 
+## Come funziona la pagina
+
+Le liste sulla pagina sono **condivise fra tutti**: spunte, nomi di chi porta cosa e
+voci aggiunte a mano si propagano agli altri telefoni entro dieci secondi. Ognuno può
+aggiungere voci, toglierle e spostarle da una lista all'altra.
+
+Funziona anche senza rete: le modifiche restano sul telefono e partono da sole quando
+il segnale torna. In cima alla pagina un pallino verde dice se è sincronizzata.
+
+### Architettura
+
+Pagina statica senza build, più una funzione serverless su Netlify che tiene lo stato
+condiviso in Netlify Blobs.
+
+- `index.html` — la pagina, tutto inline, nessuna dipendenza esterna
+- `netlify/functions/state.mjs` — l'endpoint `/api/state`, GET legge e POST fonde
+- `test/` — test della fusione e della pagina
+
+Lo stato non è un documento che si sovrascrive, ma un registro di operazioni: ogni
+spunta, nome o voce è una chiave con una marca temporale, e nella fusione vince la più
+recente. È il motivo per cui sei persone possono modificare la stessa lista nello stesso
+momento senza cancellarsi a vicenda. Il client tiene la sua copia in `localStorage` e
+rimanda sempre tutto, quindi anche una scrittura persa si recupera al giro dopo.
+
+### Metterla online
+
+Il sito sta su GitHub Pages, la sincronizzazione su Netlify. La pagina capisce da sola
+dove si trova: servita da Netlify usa `/api/state`, servita da GitHub Pages chiama
+l'indirizzo Netlify per esteso.
+
+1. Su Netlify: **Add new site → Import an existing project → GitHub →
+   `PilaScat/piano-croazia`**. Non serve toccare i comandi di build, li legge da
+   `netlify.toml`.
+2. Chiamare il sito **`piano-croazia`**, così l'indirizzo è
+   `https://piano-croazia.netlify.app`. Con un nome diverso va cambiata la costante
+   `API_HOST` in cima allo script di `index.html`.
+3. Da lì in poi ogni push su `master` ridistribuisce entrambi.
+
+### Test
+
+```
+npm install
+npm test
+```
+
 ## Fonti
 
 - [Vignetta Slovenia 2026: costi, validità e multa — SicurAuto](https://www.sicurauto.it/news/codice-della-strada/vignetta-slovenia-2026-proroga-costi-validita-e-multa/)

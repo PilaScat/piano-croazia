@@ -1,4 +1,6 @@
 scratch_*
+node_modules/
+.netlify/
 Thumbs.db
 desktop.ini
 .DS_Store

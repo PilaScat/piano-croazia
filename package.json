@@ -1,0 +1,16 @@
+{
+  "name": "piano-croazia",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Piano di viaggio in Istria, 13-16 agosto 2026",
+  "type": "module",
+  "scripts": {
+    "test": "node test/merge.test.mjs && node test/page.test.mjs"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  },
+  "devDependencies": {
+    "jsdom": "^26.0.0"
+  }
+}
