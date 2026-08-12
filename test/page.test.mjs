@@ -474,6 +474,28 @@ test('la fusione di roba comune in Da casa non perde niente', async (t) => {
   assert.equal(biscotti.querySelector('.who').value, 'Scat');
 });
 
+test('una modifica fatta da chi ha ancora la pagina vecchia arriva lo stesso', async (t) => {
+  const server = makeServer();
+  const nuovo = open(server);
+  t.after(() => nuovo.window.close());
+  await flush();
+
+  server.ops = merge(server.ops, {
+    'c|comune|b|1 ciabatta multipresa': { v: 1, t: Date.now() + 1000 },
+    'o|comune|b|1 ciabatta multipresa': { v: 'Pier', t: Date.now() + 1000 },
+  });
+
+  nuovo.window.__piano.sync();
+  await flush();
+
+  const riga = [...nuovo.window.document.querySelectorAll('.check[data-list="dacasa"] li')]
+    .find((li) => li.querySelector('.txt').textContent.includes('ciabatta multipresa'));
+  assert.ok(riga, 'la riga deve esistere in Da casa');
+  assert.equal(riga.querySelector('input[type=checkbox]').checked, true,
+    'la spunta fatta dalla pagina vecchia deve comparire senza ricaricare');
+  assert.equal(riga.querySelector('.who').value, 'Pier');
+});
+
 test('la fusione e idempotente e non resuscita voci tolte', async (t) => {
   const t0 = 1786531403397;
   const vecchio = {

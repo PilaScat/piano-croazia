@@ -1010,6 +1010,7 @@ footer a{color:var(--muted)}
     }).then(function(data){
       var before=JSON.stringify(ops);
       ops=merge(ops,data.ops||{});
+      fondiLista('comune','dacasa');
       if(JSON.stringify(ops)!==before){ saveLocal(); refreshChanged(); }
       var d=new Date();
       setStatus('ok','Sincronizzato alle '+
