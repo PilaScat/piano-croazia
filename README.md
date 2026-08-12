@@ -21,7 +21,7 @@ Due sere su quattro a casa fra piscina e barbecue.
 
 | Giorno | |
 |---|---|
-| **Giovedì 13** | Viaggio, spesa a Iper Tosano, arrivo, piscina, spesa fresca |
+| **Giovedì 13** | Viaggio diretto, arrivo, piscina, spesa fresca |
 | **Venerdì 14** | Kayak a Kamenjak la mattina, Premantura tutto il pomeriggio, grigliata |
 | **Sabato 15** | Giornata di spiaggia, sera a Pola con l'Arena |
 | **Domenica 16** | Check-out, Rovigno, rientro |
@@ -54,23 +54,23 @@ Tre avvertenze:
 
 | Ora | Tappa |
 |---|---|
-| 08:00 | Partenza |
-| 08:30 | **Iper Tosano**, via Diamantina 1 / Galleria Diamantina, Ferrara (apre 08:30) |
-| 09:45 | Fine spesa, carico |
-| 10:00 | Ferrara Nord → A13 → Padova → A4 → Trieste |
-| 12:30 | Sosta pranzo e cambio guida, con i panini comprati a Tosano |
+| 08:30 | Partenza, pulmino già carico dalla sera prima |
+| 09:00 | A13 → Padova → A4 → Trieste |
+| 12:30 | Sosta pranzo e cambio guida, 45 minuti, coi panini comprati il giorno prima |
 | 14:15 | Trieste, uscita verso Rabuiese/Muggia |
 | 14:30 | Confine Škofije → G1-11 Capodistria → tunnel Markovec → G2-111 → Isola |
 | 15:00 | Fine quattro corsie sopra Isola → strada 111: Strugnano, Portorose, Lucia |
-| 15:30 | Valico Dragogna (o Sicciole) → Umago |
-| 15:45 | A9 verso sud, uscita Vodnjan/Dignano |
-| 16:30 | **Arrivo**, scarico e giro della casa |
+| 15:15 | Valico Dragogna (o Sicciole) → Umago |
+| 15:30 | A9 verso sud, uscita Vodnjan/Dignano |
+| 15:45 | **Arrivo in zona**: se si è in anticipo, Peroj è a 10 minuti per il primo bagno |
+| 16:00 | **Check-in**, scarico e giro della casa |
 | 17:15 | Bagno in piscina |
 | 18:15 | **Spesa fresca** al Lidl o Konzum di Dignano |
 | 19:45 | Rientro, cena leggera a casa e serata in piscina |
 
-Circa 460 km e 6h30 di guida. Il 13 agosto è giorno di esodo: A4 verso Trieste e valico
-di Dragogna sono i punti critici, l'unica difesa è partire in orario.
+Circa 460 km e 6h25 di guida, senza soste per la spesa: quella è già fatta e caricata.
+Il 13 agosto è giorno di esodo: A4 verso Trieste e valico di Dragogna sono i punti
+critici, l'unica difesa è partire in orario.
 
 Il giro della casa va fatto **prima** di andare a fare la spesa, per verificare cosa c'è
 davvero: griglia con grata, carbonella, pentole, coltelli, teli, ombrellone, carta
@@ -240,7 +240,7 @@ anche comprare sul posto.
 
 ## Lista della spesa
 
-Secco e bevande a Tosano, tutto il fresco in Croazia: nessun rischio di catena del
+Secco e bevande in Italia il pomeriggio prima, tutto il fresco in Croazia: nessun rischio di catena del
 freddo su sei ore di viaggio ad agosto.
 
 Il programma prevede tre colazioni, una cena leggera a casa, **una grigliata**, un
@@ -265,7 +265,11 @@ pagina, nel campo accanto a ogni voce.
 | Torta allo yogurt | |
 | Marmellata | |
 
-### A Tosano, giovedì 13 mattina
+### In Italia, mercoledì 12 pomeriggio
+
+Si fa il pomeriggio prima di partire e si carica il pulmino la sera stessa: 72 litri
+d'acqua più le birre sono il grosso del peso, e farlo la mattina della partenza costa
+mezz'ora che serve altrove.
 
 **Bevande.** La voce più pesante e quella dove il prezzo italiano conviene davvero: in
 agosto, con piscina e due giornate intere di spiaggia, servono almeno 4 litri d'acqua a
@@ -464,7 +468,7 @@ Escluso l'affitto della casa.
 | Kayak, 4 persone | 200-240 € |
 | Arena di Pola, 6 persone | 60 € |
 | Parcheggi Pola, Rovigno e spiaggia del 15 | 35 € |
-| Spesa a Tosano | 160 € |
+| Spesa secca in Italia | 160 € |
 | Spesa a Dignano | 190 € |
 | Pranzo a Premantura, 14 | 120 € |
 | Cena a Pola, 15 | 180 € |
@@ -536,7 +540,6 @@ npm test
 - [Vignetta autostradale slovena: istruzioni per l'uso — SLOvely](https://www.slovely.eu/vignetta-autostradale-slovenia/)
 - [Giorni festivi Croazia 2026](https://neradni-dani.com/giorni-festivi-croazia.php)
 - [Arena di Pola — sito ufficiale](https://www.arenapula.hr/it/)
-- [Iper Tosano Ferrara, via Diamantina 1 — orari](https://www.promoqui.it/ferrara/negozio/iper-tosano-via-diamantina-1)
 - [Cape Kamenjak: Sea Cave Kayak Tour — GetYourGuide](https://www.getyourguide.com/premantura-l131348/cape-kamenjak-sea-cave-kayak-tour-t397619/)
 - [Kayak & Canoe Cape Kamenjak, offerte e prezzi — CheckYeti](https://www.checkyeti.com/en/kayak-canoe/croatia/cape-kamenjak/kayak-canoe)
 - [Biglietti JU Kamenjak](https://shop.kamenjak.hr/en/tickets)
