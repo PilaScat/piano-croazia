@@ -250,6 +250,18 @@ Due persone hanno problemi con il lattosio: latte e yogurt vanno presi anche nel
 versione senza lattosio. I formaggi molto stagionati (grana, pecorino, paški sir) e il
 burro ne contengono tracce trascurabili e di norma si tollerano.
 
+### Da casa
+
+Quello che portiamo noi e che quindi non va comprato.
+
+- Olio extravergine
+- Aglio e peperoncino
+- Sale fino e grosso
+- Pepe, origano, paprika, rosmarino
+- Biscotti
+- Torta allo yogurt
+- Marmellata
+
 ### A Tosano, giovedì 13 mattina
 
 **Bevande.** La voce più pesante e quella dove il prezzo italiano conviene davvero: in
@@ -269,13 +281,11 @@ testa al giorno.
 **Per la cena del 13**, che si arriva stanchi e non si ha voglia di niente
 
 - Pasta 1 kg e 2 bottiglie di passata di pomodoro
-- Olio extravergine, aglio, peperoncino
 
 **Colazioni e dispensa**
 
-- Fette biscottate, biscotti (3 pacchi), marmellata, crema alle nocciole, cereali
+- Fette biscottate, crema alle nocciole, cereali
 - Caffè per moka 500 g, zucchero
-- Sale fino e grosso, pepe, origano, paprika, rosmarino
 - Cracker, taralli, patatine (5 buste), frutta secca (2 buste)
 - Barrette e snack da portare a Kamenjak il 14
 
